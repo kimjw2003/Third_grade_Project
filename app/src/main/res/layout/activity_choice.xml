@@ -1,9 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.list.ChoiceActivity">
+
+    <Button
+        android:id="@+id/very_happy_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/very_happy_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/very_happy_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:text="Very Happy"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/happy_Tv"
+        app:layout_constraintTop_toBottomOf="@+id/very_happy_btn" />
+
+    <Button
+        android:id="@+id/happy_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/happy_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/very_happy_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/happy_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:text="Happy"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/very_happy_Tv"
+        app:layout_constraintTop_toBottomOf="@+id/happy_btn" />
+
+    <Button
+        android:id="@+id/soso_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/soso_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/very_happy_Tv" />
+
+    <TextView
+        android:id="@+id/soso_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="Soso"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/sad_Tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soso_btn" />
+
+    <Button
+        android:id="@+id/sad_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/sad_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toEndOf="@+id/soso_btn"
+        app:layout_constraintTop_toBottomOf="@+id/happy_Tv" />
+
+    <TextView
+        android:id="@+id/sad_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="30dp"
+        android:text="Sad"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/soso_Tv"
+        app:layout_constraintTop_toBottomOf="@+id/sad_btn" />
+
+    <Button
+        android:id="@+id/angry_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/angry_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soso_Tv" />
+
+    <TextView
+        android:id="@+id/angry_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:text="Angry"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/angry_btn" />
+
+    <Button
+        android:id="@+id/writing_next_btn"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="25dp"
+        android:text="다음"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
