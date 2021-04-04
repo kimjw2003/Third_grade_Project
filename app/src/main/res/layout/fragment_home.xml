@@ -24,13 +24,59 @@
     <TextView
         android:id="@+id/title_box"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/wrote_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/diary_check_ani"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/title_box"
+        app:layout_constraintEnd_toEndOf="@+id/title_box"
+        app:layout_constraintStart_toStartOf="@+id/title_box"
+        app:layout_constraintTop_toTopOf="@+id/title_box"
+        app:lottie_rawRes="@raw/check_anim"
+        app:lottie_autoPlay="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/diary_no_check_ani"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/title_box"
+        app:layout_constraintEnd_toEndOf="@+id/title_box"
+        app:layout_constraintStart_toStartOf="@+id/title_box"
+        app:layout_constraintTop_toTopOf="@+id/title_box"
+        app:lottie_rawRes="@raw/no_check_anim"
+        app:lottie_autoPlay="true" />
+
+    <ImageView
+        android:id="@+id/weather_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_box"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/weather_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날씨 텍스트"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toEndOf="@+id/weather_img"
+        app:layout_constraintTop_toBottomOf="@+id/title_box"
+        app:layout_constraintVertical_bias="0.352" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
