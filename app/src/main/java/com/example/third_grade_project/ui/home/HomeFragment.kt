@@ -19,24 +19,38 @@ import javax.security.auth.callback.Callback
 
 class HomeFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
         getWeather()
-        return inflater.inflate(R.layout.fragment_home, container, false)
 
-
+        return view
     }
 
     // 날씨 API 설정
     private fun getWeather(){
         WeatherClient.retrofitService.getCurrentWeather("BVGRPZAsOY6qzmiUtScnKkBraRMnIOJ%2F26fTMonMRLgwniHt5fwhWHMSWxV9k5eVQdY00vxTVc2jNdpWLxrEbQ%3D%3D",
                 "10","1", "JSON", "11H10604"
-        ).enqueue(object : retrofit2.Callback<Base>{
+        ).enqueue(object : retrofit2.Callback<Base> {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 Log.d("Logd", "onResponse")
-                var res = response.body()?.response?.body?.items?.item?.get(0)
+                val res = response.body()?.response?.body?.items?.item?.get(0)
+                val rain = res?.rnYn.toString()
 
-                weather_Tv.text = res?.wf.toString()
+                res?.wf.toString().also { weather_Tv.text = it }
+
+                when (rain) {
+                      "0" -> {
+                        if (res?.wf.toString() == "맑음") {
+                            weather_img.setImageResource(R.drawable.weather_sunny)
+                        } else {
+                            weather_img.setImageResource(R.drawable.weather_cloudy)
+                        }
+                    } "1", "2", "4" -> {
+                        weather_img.setImageResource(R.drawable.weather_rainy)
+                    } "3" -> {
+                        weather_img.setImageResource(R.drawable.weather_snowy)
+                    }
+                }
 
 
 

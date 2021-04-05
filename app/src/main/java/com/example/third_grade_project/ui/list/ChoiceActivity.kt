@@ -26,18 +26,23 @@ class ChoiceActivity : AppCompatActivity(), View.OnClickListener {
         when(v.id){
             angry_btn.id-> {
                 startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+                finish()
             }
             very_happy_btn.id-> {
                 startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+                finish()
             }
             happy_btn.id-> {
                 startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+                finish()
             }
             soso_btn.id-> {
                 startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+                finish()
             }
             sad_btn.id-> {
                 startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+                finish()
             }
         }
 
