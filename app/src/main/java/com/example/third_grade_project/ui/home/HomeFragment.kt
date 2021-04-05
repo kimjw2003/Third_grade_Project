@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
 
     }
 
+    // 날씨 API 설정
     private fun getWeather(){
         WeatherClient.retrofitService.getCurrentWeather("BVGRPZAsOY6qzmiUtScnKkBraRMnIOJ%2F26fTMonMRLgwniHt5fwhWHMSWxV9k5eVQdY00vxTVc2jNdpWLxrEbQ%3D%3D",
                 "10","1", "JSON", "11H10604"
@@ -44,7 +45,8 @@ class HomeFragment : Fragment() {
                 t.printStackTrace()
                 Log.d("Logd", t.message.toString())
             }
-
         })
     }
+
+
 }
