@@ -5,22 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.R
 import com.example.third_grade_project.data.Base
 import com.example.third_grade_project.retrofit.WeatherClient
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class HomeFragment : Fragment() {
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
         getWeather()
 
         return view
@@ -61,6 +60,4 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
-
 }
