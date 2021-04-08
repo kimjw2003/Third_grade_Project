@@ -1,8 +1,9 @@
-package com.example.third_grade_project.viewModel
+package com.example.third_grade_project.viewModelFactory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.db.DiaryRepository
+import com.example.third_grade_project.viewModel.AddViewModel
 import java.lang.IllegalArgumentException
 
 class AddViewModelFactory(private val repositoty: DiaryRepository) : ViewModelProvider.Factory {

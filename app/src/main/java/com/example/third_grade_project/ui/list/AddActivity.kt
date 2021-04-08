@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +13,7 @@ import com.example.third_grade_project.databinding.ActivityAddBinding
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.AddViewModel
-import com.example.third_grade_project.viewModel.AddViewModelFactory
+import com.example.third_grade_project.viewModelFactory.AddViewModelFactory
 
 
 class AddActivity : AppCompatActivity() {
@@ -37,9 +36,7 @@ class AddActivity : AppCompatActivity() {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
-            }
-        })
-
-
+                }
+            })
         }
     }

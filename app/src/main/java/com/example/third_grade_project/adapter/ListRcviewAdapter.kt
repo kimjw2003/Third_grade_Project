@@ -1,9 +1,13 @@
 package com.example.third_grade_project.adapter
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.third_grade_project.DetailActivity
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ListItemBinding
 import com.example.third_grade_project.db.Diary
@@ -23,17 +27,23 @@ class ListRcviewAdapter(private val diaryList: List<Diary>, private val clickLis
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(diaryList[position], clickListener)
+        holder.bind(diaryList[position])
     }
 }
 
 class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
 
-    fun bind(subscriber: Diary, clickListener: (Diary)->Unit){
-        binding.listTitleTv.text = subscriber.title
+    fun bind(diary: Diary){
+        binding.listTitleTv.text = diary.title
         binding.listItemLayout.setOnClickListener {
 
-            clickListener(subscriber)
+            itemView.setOnClickListener {
+                val i = Intent(itemView.context, DetailActivity::class.java)
+                i.putExtra("title", diary.title)
+                Log.d("Logd", "from bind title is : "+diary.title)
+                i.putExtra("content", diary.content)
+                itemView.context.startActivity(i)
+            }
         }
     }
 }

@@ -11,12 +11,11 @@ import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 
-class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Observable {
+class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
     val diary = repository.diary
     private var isDelete = false
     private lateinit var diaryToDelete : Diary
-
 
     @Bindable
     val inputTitle = MutableLiveData<String>()
@@ -28,19 +27,30 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     val message : LiveData<Event<String>>
         get() = statusMessage
 
-    fun save(){
-        val title = inputTitle.value!!
-        val content = inputContent.value!!
-        insert(Diary(title, 0, content))
-    }
 
-    fun insert(diary: Diary) = viewModelScope.launch {
-        repository.insert(diary)
+    fun delete(diary: Diary) = viewModelScope.launch {
+        repository.delete(diary)
+        inputTitle.value = null
+        inputContent.value = null
         isDelete = false
 
-        statusMessage.value = Event("Diary Inserted Successfully")
+        statusMessage.value = Event("Diary Deleted Successfully")
     }
 
+    fun diaryDelete(){
+        if(isDelete){
+            delete(diaryToDelete)
+        }else{
+
+        }
+    }
+
+    fun initDelete(diary: Diary){
+        inputTitle.value = diary.title
+        inputContent.value = diary.content
+        isDelete = true
+        diaryToDelete = diary
+    }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 
@@ -49,5 +59,4 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 
     }
-
 }

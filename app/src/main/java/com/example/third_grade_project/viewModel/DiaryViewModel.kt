@@ -21,20 +21,7 @@ class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Obs
     val inputTitle = MutableLiveData<String>()
     @Bindable
     val inputContent = MutableLiveData<String>()
-    @Bindable
-    val saveButton = MutableLiveData<String>()
 
-    private val statusMessage = MutableLiveData<Event<String>>()
-
-    val message : LiveData<Event<String>>
-        get() = statusMessage
-
-    fun delete(diary: Diary) = viewModelScope.launch {
-        repository.delete(diary)
-        isDelete = false
-
-        statusMessage.value = Event("Diary Deleted Successfully")
-    }
 
     fun initDelete(diary: Diary){
         inputTitle.value = diary.title

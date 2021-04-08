@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/add_next_Btn"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginBottom="25dp"
         android:text="작성완료"
