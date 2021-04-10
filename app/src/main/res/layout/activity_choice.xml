@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="myChoiceViewModel"
+            type="com.example.third_grade_project.viewModel.ChoiceViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,6 +21,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="120dp"
+        android:onClick="@{()->myChoiceViewModel.choiceVeryHappy()}"
         android:background="@drawable/very_happy_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +45,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="120dp"
+        android:onClick="@{()->myChoiceViewModel.choiceHappy()}"
         android:background="@drawable/happy_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/very_happy_btn"
@@ -61,6 +71,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="64dp"
+        android:onClick="@{()->myChoiceViewModel.choiceSoso()}"
         android:background="@drawable/soso_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/very_happy_Tv" />
@@ -85,6 +96,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/sad_image"
+        android:onClick="@{()->myChoiceViewModel.choiceSad()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toEndOf="@+id/soso_btn"
@@ -110,6 +122,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="64dp"
+        android:onClick="@{()->myChoiceViewModel.choiceAngry()}"
         android:background="@drawable/angry_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soso_Tv" />
@@ -129,3 +142,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

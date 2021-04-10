@@ -3,48 +3,46 @@ package com.example.third_grade_project.ui.list
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.third_grade_project.MainActivity
 import com.example.third_grade_project.R
-import kotlinx.android.synthetic.main.activity_choice.*
-import kotlinx.android.synthetic.main.activity_choice.view.*
+import com.example.third_grade_project.databinding.ActivityChoiceBinding
+import com.example.third_grade_project.db.DiaryDb
+import com.example.third_grade_project.db.DiaryRepository
+import com.example.third_grade_project.viewModel.ChoiceViewModel
+import com.example.third_grade_project.viewModelFactory.AddViewModelFactory
+import com.example.third_grade_project.viewModelFactory.ChoiceViewModelFactory
 
-class ChoiceActivity : AppCompatActivity(), View.OnClickListener {
+class ChoiceActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityChoiceBinding
+    private lateinit var choiceViewModel : ChoiceViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_choice)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_choice)
 
-        angry_btn.setOnClickListener(this)
-        very_happy_btn.setOnClickListener(this)
-        happy_btn.setOnClickListener(this)
-        soso_btn.setOnClickListener(this)
-        sad_btn.setOnClickListener(this)
+        val dao = DiaryDb.getInstance(application).diaryDao
+        val repository = DiaryRepository(dao)
+        val factory = ChoiceViewModelFactory(repository)
+        choiceViewModel = ViewModelProvider(this, factory).get(ChoiceViewModel::class.java)
+        binding.myChoiceViewModel = choiceViewModel
+        binding.lifecycleOwner = this
 
-    }
 
-    override fun onClick(v: View) {
-
-        when(v.id){
-            angry_btn.id-> {
-                startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
+        choiceViewModel.statusMessage.observe(this, Observer {
+            it.getContentIfNotHandled()?.let { temp ->
+                Toast.makeText(this, "기분 : "+ temp, Toast.LENGTH_SHORT).show()
+                var intent = Intent(this@ChoiceActivity, AddActivity::class.java)
+                intent.putExtra("mood", temp)
+                Log.d("Logd", "${temp}")
+                startActivity(intent)
                 finish()
             }
-            very_happy_btn.id-> {
-                startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
-                finish()
-            }
-            happy_btn.id-> {
-                startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
-                finish()
-            }
-            soso_btn.id-> {
-                startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
-                finish()
-            }
-            sad_btn.id-> {
-                startActivity(Intent(this@ChoiceActivity, AddActivity::class.java))
-                finish()
-            }
-        }
-
+        })
     }
 }

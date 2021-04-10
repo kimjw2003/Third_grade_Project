@@ -3,6 +3,7 @@ package com.example.third_grade_project.ui.list
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -32,10 +33,14 @@ class AddActivity : AppCompatActivity() {
         binding.myAddViewModel = addViewModel
         binding.lifecycleOwner = this
 
+        addViewModel.mood = intent.getStringExtra("mood").toString()
+        Log.d("Logd", "mood is ${intent.getStringExtra("mood")}")
+
         addViewModel.message.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
+                finish()
                 }
             })
         }

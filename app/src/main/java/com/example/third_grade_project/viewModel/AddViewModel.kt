@@ -15,7 +15,7 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
 
     val diary = repository.diary
     private var isDelete = false
-    private lateinit var diaryToDelete : Diary
+    lateinit var mood : String
 
 
     @Bindable
@@ -31,7 +31,7 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     fun save(){
         val title = inputTitle.value!!
         val content = inputContent.value!!
-        insert(Diary(title, 0, content, "", ""))
+        insert(Diary(title, 0, content, "", mood))
     }
 
     fun insert(diary: Diary) = viewModelScope.launch {
