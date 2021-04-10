@@ -10,6 +10,7 @@ import com.example.third_grade_project.Event
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
+import java.util.*
 
 class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
@@ -21,7 +22,12 @@ class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Obs
     val inputTitle = MutableLiveData<String>()
     @Bindable
     val inputContent = MutableLiveData<String>()
+    @Bindable
+    val date = MutableLiveData<Date>()
 
+    fun showDate(){
+        date.value
+    }
 
     fun initDelete(diary: Diary){
         inputTitle.value = diary.title

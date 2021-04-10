@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Diary::class], version = 1)
+@Database(entities = [Diary::class], version = 3)
 abstract class DiaryDb : RoomDatabase() {
     abstract val diaryDao : DiaryDao
 
@@ -19,6 +19,7 @@ abstract class DiaryDb : RoomDatabase() {
                     instance = Room.databaseBuilder(
                             context.applicationContext,
                             DiaryDb::class.java, "diary_data_database")
+                            .fallbackToDestructiveMigration()
                             .build()
                 }
                 return instance

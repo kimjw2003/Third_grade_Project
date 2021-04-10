@@ -3,6 +3,7 @@ package com.example.third_grade_project.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "diary_data_table")
 data class Diary (
@@ -14,5 +15,11 @@ data class Diary (
     var id : Int,
 
     @ColumnInfo(name = "diary_content")
-    var content : String
+    var content : String,
+
+    @ColumnInfo(name = "diary_date")
+    var date : String,
+
+    @ColumnInfo(name = "diary_mood")
+    var mood : String
 )

@@ -3,7 +3,6 @@ package com.example.third_grade_project.adapter
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -39,9 +38,11 @@ class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(bindin
 
             itemView.setOnClickListener {
                 val i = Intent(itemView.context, DetailActivity::class.java)
+                i.putExtra("id", diary.id)
+                i.putExtra("date", diary.date)
                 i.putExtra("title", diary.title)
-                Log.d("Logd", "from bind title is : "+diary.title)
                 i.putExtra("content", diary.content)
+                i.putExtra("mood", diary.mood)
                 itemView.context.startActivity(i)
             }
         }

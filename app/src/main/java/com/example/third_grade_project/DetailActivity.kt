@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.databinding.ActivityDetailBinding
+import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel
@@ -23,6 +24,9 @@ class DetailActivity : AppCompatActivity() {
     private var diaryDb : DiaryDb? = null
     var title : String? = null
     var content : String? = null
+    var id : Int? = null
+    var date : String? = null
+    var mood : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +41,14 @@ class DetailActivity : AppCompatActivity() {
 
         diaryDb = DiaryDb.getInstance(this)
         title = intent.getStringExtra("title")
-        Log.d("Logd", "title is : "+title.toString())
         content = intent.getStringExtra("content")
+        id = intent.getIntExtra("id", -1)
+        date = intent.getStringExtra("date")
+        mood = intent.getStringExtra("mood")
+
+        val diary = Diary(title!!, id!!, content!!, date!!,mood!!)
+
+        detailViewModel.diaryToDelete = diary
 
         detail_title_tv.text = title
         detail_content_Tv.text = content

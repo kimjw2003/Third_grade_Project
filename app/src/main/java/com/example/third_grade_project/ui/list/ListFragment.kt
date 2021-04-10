@@ -20,19 +20,26 @@ import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DiaryViewModel
 import com.example.third_grade_project.viewModelFactory.DiaryViewModelFactory
 import kotlinx.android.synthetic.main.fragment_list.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ListFragment : Fragment() {
 
     private lateinit var binding : FragmentListBinding
     private lateinit var diaryviewmodel : DiaryViewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    private val currentDateTime = Calendar.getInstance().time
+    private var date = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         writing_fabBtn.setOnClickListener {
             val intent = Intent(activity, ChoiceActivity::class.java)
             startActivity(intent)
         }
+
+        date_Tv.text = date
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

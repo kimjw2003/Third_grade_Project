@@ -14,8 +14,7 @@ import kotlinx.coroutines.launch
 class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
     val diary = repository.diary
-    private var isDelete = false
-    private lateinit var diaryToDelete : Diary
+    lateinit var diaryToDelete : Diary
 
     @Bindable
     val inputTitle = MutableLiveData<String>()
@@ -27,29 +26,14 @@ class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
     val message : LiveData<Event<String>>
         get() = statusMessage
 
-
     fun delete(diary: Diary) = viewModelScope.launch {
         repository.delete(diary)
-        inputTitle.value = null
-        inputContent.value = null
-        isDelete = false
 
         statusMessage.value = Event("Diary Deleted Successfully")
     }
 
     fun diaryDelete(){
-        if(isDelete){
-            delete(diaryToDelete)
-        }else{
-
-        }
-    }
-
-    fun initDelete(diary: Diary){
-        inputTitle.value = diary.title
-        inputContent.value = diary.content
-        isDelete = true
-        diaryToDelete = diary
+        delete(diaryToDelete)
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

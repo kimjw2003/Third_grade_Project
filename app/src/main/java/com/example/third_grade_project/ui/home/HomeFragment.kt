@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
             }
             override fun onFailure(call: Call<Base>, t: Throwable) {
                 t.printStackTrace()
-                Log.d("Logd", t.message.toString())
+                Log.d("Logd", "weather failed - "+t.message.toString())
             }
         })
     }

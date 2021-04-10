@@ -31,7 +31,7 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     fun save(){
         val title = inputTitle.value!!
         val content = inputContent.value!!
-        insert(Diary(title, 0, content))
+        insert(Diary(title, 0, content, "", ""))
     }
 
     fun insert(diary: Diary) = viewModelScope.launch {
