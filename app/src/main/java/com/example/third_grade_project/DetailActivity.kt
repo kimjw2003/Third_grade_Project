@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.databinding.ActivityDetailBinding
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryDb
@@ -54,10 +55,21 @@ class DetailActivity : AppCompatActivity() {
         detail_content_Tv.text = content
 
         detailViewModel.message.observe(this, Observer {
+
             it.getContentIfNotHandled()?.let {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+                showDialog()
             }
         })
+    }
+
+    fun showDialog(){
+        SweetAlertDialog(this@DetailActivity, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("일기를 삭제하시겠습니까?")
+                .setContentText("다시는 되돌릴 수 없습니다!")
+                .setConfirmText("네")
+                .setConfirmClickListener {
+                    startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+                    finish()
+            }.show()
     }
 }
