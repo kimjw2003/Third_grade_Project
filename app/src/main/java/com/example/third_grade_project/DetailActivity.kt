@@ -55,7 +55,6 @@ class DetailActivity : AppCompatActivity() {
         detail_content_Tv.text = content
 
         detailViewModel.message.observe(this, Observer {
-
             it.getContentIfNotHandled()?.let {
                 showDialog()
             }

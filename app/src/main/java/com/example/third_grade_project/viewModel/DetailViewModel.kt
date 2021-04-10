@@ -28,6 +28,8 @@ class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
 
     fun delete(diary: Diary) = viewModelScope.launch {
         repository.delete(diary)
+
+        statusMessage.value = Event("Diary Deleted Successfully")
     }
 
     fun diaryDelete(){
