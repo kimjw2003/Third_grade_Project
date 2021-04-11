@@ -13,13 +13,7 @@ class ChoiceViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
 
     val diary = repository.diary
 
-    @Bindable
-    val inputMood = MutableLiveData<String>()
-
     val statusMessage = MutableLiveData<Event<String>>()
-
-    val message : LiveData<Event<String>>
-        get() = statusMessage
 
     private val veryHappy : String = "VeryHappy"
     private val happy : String = "Happy"

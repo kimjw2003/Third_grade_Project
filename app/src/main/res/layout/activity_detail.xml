@@ -29,6 +29,16 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/mood_Iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/detail_title_tv"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/detail_content_Tv"
         android:layout_width="350dp"

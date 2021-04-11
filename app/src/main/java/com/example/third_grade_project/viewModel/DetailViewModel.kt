@@ -16,11 +16,6 @@ class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
     val diary = repository.diary
     lateinit var diaryToDelete : Diary
 
-    @Bindable
-    val inputTitle = MutableLiveData<String>()
-    @Bindable
-    val inputContent = MutableLiveData<String>()
-
     private val statusMessage = MutableLiveData<Event<String>>()
 
     val message : LiveData<Event<String>>

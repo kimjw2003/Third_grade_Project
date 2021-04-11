@@ -48,11 +48,11 @@ class DetailActivity : AppCompatActivity() {
         mood = intent.getStringExtra("mood")
 
         val diary = Diary(title!!, id!!, content!!, date!!,mood!!)
-
         detailViewModel.diaryToDelete = diary
 
         detail_title_tv.text = title
         detail_content_Tv.text = content
+        moodCheck()
 
         detailViewModel.message.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
@@ -71,4 +71,27 @@ class DetailActivity : AppCompatActivity() {
                     finish()
             }.show()
     }
+
+    fun moodCheck(){
+
+        when(mood){
+            "VeryHappy"->{
+                mood_Iv.setImageResource(R.drawable.very_happy_image)
+            }
+            "Happy"->{
+                mood_Iv.setImageResource(R.drawable.happy_image)
+            }
+            "Soso"->{
+                mood_Iv.setImageResource(R.drawable.soso_image)
+            }
+            "Sad"->{
+                mood_Iv.setImageResource(R.drawable.sad_image)
+            }
+            "Angry"->{
+                mood_Iv.setImageResource(R.drawable.angry_image)
+            }
+        }
+    }
+
+
 }
