@@ -23,7 +23,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailBinding
     private lateinit var detailViewModel : DetailViewModel
 
-    private var diaryDb : DiaryDb? = null
     private var title : String? = null
     private var content : String? = null
     private var id : Int? = null
@@ -41,7 +40,6 @@ class DetailActivity : AppCompatActivity() {
         binding.myDetailViewModel = detailViewModel
         binding.lifecycleOwner = this
 
-        diaryDb = DiaryDb.getInstance(this)
         title = intent.getStringExtra("title")
         content = intent.getStringExtra("content")
         id = intent.getIntExtra("id", -1)

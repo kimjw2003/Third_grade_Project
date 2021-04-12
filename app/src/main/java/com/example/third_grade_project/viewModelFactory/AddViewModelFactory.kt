@@ -6,10 +6,10 @@ import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.AddViewModel
 import java.lang.IllegalArgumentException
 
-class AddViewModelFactory(private val repositoty: DiaryRepository) : ViewModelProvider.Factory {
+class AddViewModelFactory(private val repository: DiaryRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(AddViewModel::class.java)){
-            return AddViewModel(repositoty) as T
+            return AddViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown View Model Class")
     }

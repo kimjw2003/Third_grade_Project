@@ -10,10 +10,10 @@ import com.example.third_grade_project.Event
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
+import java.util.*
 
 class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
-    val diary = repository.diary
     lateinit var diaryToDelete : Diary
 
     private val statusMessage = MutableLiveData<Event<String>>()
@@ -22,8 +22,12 @@ class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
         get() = statusMessage
 
     fun delete(diary: Diary) = viewModelScope.launch {
-        repository.delete(diary)                                 //게시물이 삭제가 되는 곳 - Dialog창 뜨는 동시에 실행
-        statusMessage.value = Event("Diary Deleted Successfully")
+        repository.delete(diary)
+        statusMessage.value = Event("일기가 성공적으로 삭제되었습니다")
+    }
+
+    fun getDiary() = viewModelScope.launch {
+        val diary = repository.getAllDiary()
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

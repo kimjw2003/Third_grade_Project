@@ -64,9 +64,9 @@ class ListFragment : Fragment() {
     }
 
     private fun displayDiaryList(){
-        diaryviewmodel.diary.observe(viewLifecycleOwner, Observer {
+        diaryviewmodel.getDiary.observe(viewLifecycleOwner)  {
             binding.listRcView.adapter = ListRcviewAdapter(it, {selectedItem:Diary->listItemClicked((selectedItem))})
-        })
+        }
     }
 
     private fun listItemClicked(diary: Diary){

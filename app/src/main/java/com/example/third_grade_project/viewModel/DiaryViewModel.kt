@@ -2,10 +2,7 @@ package com.example.third_grade_project.viewModel
 
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.third_grade_project.Event
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
@@ -14,7 +11,6 @@ import java.util.*
 
 class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
-    val diary = repository.diary
     private var isDelete = false
     private lateinit var diaryToDelete : Diary
 
@@ -25,8 +21,9 @@ class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Obs
     @Bindable
     val date = MutableLiveData<Date>()
 
-    fun showDate(){
-        date.value
+    val getDiary = liveData {
+        val result = repository.getAllDiary()
+        emit(result)
     }
 
     fun initDelete(diary: Diary){

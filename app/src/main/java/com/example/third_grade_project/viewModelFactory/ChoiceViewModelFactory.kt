@@ -7,10 +7,10 @@ import com.example.third_grade_project.viewModel.AddViewModel
 import com.example.third_grade_project.viewModel.ChoiceViewModel
 import java.lang.IllegalArgumentException
 
-class ChoiceViewModelFactory(private val repositoty: DiaryRepository) : ViewModelProvider.Factory {
+class ChoiceViewModelFactory(private val repository: DiaryRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(ChoiceViewModel::class.java)){
-            return ChoiceViewModel(repositoty) as T
+            return ChoiceViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown View Model Class")
     }
