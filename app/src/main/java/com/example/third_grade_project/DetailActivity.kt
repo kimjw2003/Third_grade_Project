@@ -14,6 +14,7 @@ import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel
+import com.example.third_grade_project.viewModel.DiaryViewModel
 import com.example.third_grade_project.viewModelFactory.DetailViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail.*
 
@@ -23,11 +24,11 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var detailViewModel : DetailViewModel
 
     private var diaryDb : DiaryDb? = null
-    var title : String? = null
-    var content : String? = null
-    var id : Int? = null
-    var date : String? = null
-    var mood : String? = null
+    private var title : String? = null
+    private var content : String? = null
+    private var id : Int? = null
+    private var date : String? = null
+    private var mood : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,11 +56,9 @@ class DetailActivity : AppCompatActivity() {
         detail_date_Tv.text = date
         moodCheck()
 
-        detailViewModel.message.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                showDialog()
-            }
-        })
+        detail_delete_Btn.setOnClickListener {
+            showDialog()
+        }
     }
 
     fun showDialog(){
@@ -68,6 +67,7 @@ class DetailActivity : AppCompatActivity() {
                 .setContentText("다시는 되돌릴 수 없습니다!")
                 .setConfirmText("네")
                 .setConfirmClickListener {
+                    detailViewModel.delete(detailViewModel.diaryToDelete)
                     startActivity(Intent(this@DetailActivity, MainActivity::class.java))
                     finish()
             }.show()
@@ -93,6 +93,4 @@ class DetailActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

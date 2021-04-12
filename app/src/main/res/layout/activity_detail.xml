@@ -74,7 +74,6 @@
         android:textColor="@color/black"
         android:background="@drawable/wrote_box"
         android:layout_marginBottom="10dp"
-        android:onClick="@{()->myDetailViewModel.diaryDelete()}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
