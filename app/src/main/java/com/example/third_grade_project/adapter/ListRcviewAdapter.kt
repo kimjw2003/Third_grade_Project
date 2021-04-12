@@ -36,16 +36,13 @@ class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(bindin
         binding.listTitleTv.text = diary.title
         binding.listDateTv.text = diary.date
         binding.listItemLayout.setOnClickListener {
-
-            itemView.setOnClickListener {
-                val i = Intent(itemView.context, DetailActivity::class.java)
-                i.putExtra("id", diary.id)
-                i.putExtra("date", diary.date)
-                i.putExtra("title", diary.title)
-                i.putExtra("content", diary.content)
-                i.putExtra("mood", diary.mood)
-                itemView.context.startActivity(i)
-            }
+            val i = Intent(itemView.context, DetailActivity::class.java)
+            i.putExtra("id", diary.id)
+            i.putExtra("date", diary.date)
+            i.putExtra("title", diary.title)
+            i.putExtra("content", diary.content)
+            i.putExtra("mood", diary.mood)
+            itemView.context.startActivity(i)
         }
     }
 }
