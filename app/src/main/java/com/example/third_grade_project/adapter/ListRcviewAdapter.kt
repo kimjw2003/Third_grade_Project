@@ -34,6 +34,7 @@ class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(bindin
 
     fun bind(diary: Diary){
         binding.listTitleTv.text = diary.title
+        binding.listDateTv.text = diary.date
         binding.listItemLayout.setOnClickListener {
 
             itemView.setOnClickListener {

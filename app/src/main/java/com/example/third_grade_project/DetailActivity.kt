@@ -52,6 +52,7 @@ class DetailActivity : AppCompatActivity() {
 
         detail_title_tv.text = title
         detail_content_Tv.text = content
+        detail_date_Tv.text = date
         moodCheck()
 
         detailViewModel.message.observe(this, Observer {
@@ -76,19 +77,19 @@ class DetailActivity : AppCompatActivity() {
 
         when(mood){
             "VeryHappy"->{
-                mood_Iv.setImageResource(R.drawable.very_happy_image)
+                detail_mood_Iv.setImageResource(R.drawable.very_happy_image)
             }
             "Happy"->{
-                mood_Iv.setImageResource(R.drawable.happy_image)
+                detail_mood_Iv.setImageResource(R.drawable.happy_image)
             }
             "Soso"->{
-                mood_Iv.setImageResource(R.drawable.soso_image)
+                detail_mood_Iv.setImageResource(R.drawable.soso_image)
             }
             "Sad"->{
-                mood_Iv.setImageResource(R.drawable.sad_image)
+                detail_mood_Iv.setImageResource(R.drawable.sad_image)
             }
             "Angry"->{
-                mood_Iv.setImageResource(R.drawable.angry_image)
+                detail_mood_Iv.setImageResource(R.drawable.angry_image)
             }
         }
     }
