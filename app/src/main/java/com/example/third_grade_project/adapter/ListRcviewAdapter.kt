@@ -1,12 +1,11 @@
 package com.example.third_grade_project.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.third_grade_project.DetailActivity
+import com.example.third_grade_project.view.DetailActivity
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ListItemBinding
 import com.example.third_grade_project.db.Diary

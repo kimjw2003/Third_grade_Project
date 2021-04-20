@@ -12,7 +12,8 @@ class DiaryRepository(private val dao : DiaryDao) {
         dao.deleteDiary(diary)
 
     suspend fun getAllDateDiary(date: String) =
-        dao.getAllDiary(date)
+        dao.getAllDateDiary(date)
 
-    fun getAllDiaryFlow() = dao.getAllDiaryFlow()
+    fun getAllDiaryFlow() =
+        dao.getAllDiaryFlow()
 }

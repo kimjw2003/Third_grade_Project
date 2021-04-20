@@ -13,7 +13,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.list.ChoiceActivity">
+    tools:context=".view.ChoiceActivity">
 
     <Button
         android:id="@+id/very_happy_btn"

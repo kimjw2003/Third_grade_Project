@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Third_grade_Project">
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".ui.list.AddActivity" />
-        <activity android:name=".ui.list.ChoiceActivity" />
+        <activity android:name=".view.DetailActivity"></activity>
+        <activity android:name="com.example.third_grade_project.view.AddActivity" />
+        <activity android:name="com.example.third_grade_project.view.ChoiceActivity" />
         <activity
-            android:name=".StartActivity"
+            android:name=".view.StartActivity"
             android:label="@string/title_activity_main" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

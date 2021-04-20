@@ -20,5 +20,5 @@ interface DiaryDao {
     fun getAllDiaryFlow() : Flow<List<Diary>>
 
     @Query("SELECT * FROM diary_data_table where diary_date = :date")
-    suspend fun getAllDiary(date: String) : List<Diary>
+    suspend fun getAllDateDiary(date: String) : List<Diary>
 }

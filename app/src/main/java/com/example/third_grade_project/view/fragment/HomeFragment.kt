@@ -1,4 +1,4 @@
-package com.example.third_grade_project.ui.home
+package com.example.third_grade_project.view.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -7,15 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.example.third_grade_project.R
 import com.example.third_grade_project.data.Base
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.retrofit.WeatherClient
-import com.example.third_grade_project.viewModel.DetailViewModel
 import com.example.third_grade_project.viewModel.HomeViewModel
-import com.example.third_grade_project.viewModelFactory.HomeViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Response
@@ -26,6 +21,7 @@ class HomeFragment : Fragment() {
 
     private val currentDateTime = Calendar.getInstance().time
     private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
+    private var nowTime = SimpleDateFormat("HH:mm", Locale.KOREA).format(currentDateTime)
 
     private val homeViewModel : HomeViewModel by activityViewModels()
 
@@ -39,7 +35,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel.diaryFlow.observe(viewLifecycleOwner) {
-            Log.d("MyTag", it.size.toString())
+            Log.d("Logd", it.size.toString())               // it은 일기 리스트를 나타냄
             if(it.any { diary -> nowDate == diary.date }){
                 diary_check_ani.visibility = View.VISIBLE
                 diary_no_check_ani.visibility =View.GONE
@@ -47,9 +43,6 @@ class HomeFragment : Fragment() {
                 diary_check_ani.visibility = View.GONE
                 diary_no_check_ani.visibility = View.VISIBLE
             }
-        }
-        homeViewModel.date.observe(viewLifecycleOwner) {
-
         }
     }
 

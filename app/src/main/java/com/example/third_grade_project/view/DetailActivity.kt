@@ -1,20 +1,17 @@
-package com.example.third_grade_project
+package com.example.third_grade_project.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityDetailBinding
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel
-import com.example.third_grade_project.viewModel.DiaryViewModel
 import com.example.third_grade_project.viewModelFactory.DetailViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail.*
 

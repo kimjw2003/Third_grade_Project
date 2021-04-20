@@ -1,4 +1,4 @@
-package com.example.third_grade_project.ui.list
+package com.example.third_grade_project.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.third_grade_project.MainActivity
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityAddBinding
 import com.example.third_grade_project.db.DiaryDb

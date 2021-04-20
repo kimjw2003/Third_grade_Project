@@ -13,7 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.list.AddActivity">
+    tools:context=".view.AddActivity">
 
     <TextView
         android:id="@+id/add_title_Tv"

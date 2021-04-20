@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.third_grade_project.ui.home.HomeFragment"
+        android:name="com.example.third_grade_project.view.ui.fragment.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_list"
-        android:name="com.example.third_grade_project.ui.list.ListFragment"
+        android:name="com.example.third_grade_project.view.ui.fragment.ListFragment"
         android:label="@string/title_list"
         tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/navigation_calender"
-        android:name="com.example.third_grade_project.ui.calender.CalenderFragment"
+        android:name="com.example.third_grade_project.view.ui.fragment.CalenderFragment"
         android:label="@string/title_calender"
         tools:layout="@layout/fragment_calender" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.third_grade_project.ui.settings.SettingFragment"
+        android:name="com.example.third_grade_project.view.ui.fragment.SettingFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_setting" />
 </navigation>

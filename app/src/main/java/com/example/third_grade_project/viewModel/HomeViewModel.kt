@@ -17,9 +17,9 @@ class HomeViewModel(private val repository: DiaryRepository) : ViewModel(){
         }
     }
 
-    val date = liveData{
-        val diary = repository.getAllDateDiary(Date().toString())
-        emit(diary)
-    }
+//    val date = liveData{
+//        val diary = repository.getAllDateDiary(Date().toString())
+//        emit(diary)
+//    }
 
 }
