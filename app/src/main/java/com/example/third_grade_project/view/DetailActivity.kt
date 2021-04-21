@@ -13,7 +13,6 @@ import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel
 import com.example.third_grade_project.viewModelFactory.DetailViewModelFactory
-import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -46,12 +45,12 @@ class DetailActivity : AppCompatActivity() {
         val diary = Diary(title!!, id!!, content!!, date!!,mood!!)
         detailViewModel.diaryToDelete = diary
 
-        detail_title_tv.text = title
-        detail_content_Tv.text = content
-        detail_date_Tv.text = date
+        binding.detailTitleTv.text = title
+        binding.detailContentTv.text = content
+        binding.detailDateTv.text = date
         moodCheck()
 
-        detail_delete_Btn.setOnClickListener {
+        binding.detailDeleteBtn.setOnClickListener {
             showDialog()
         }
     }
@@ -72,19 +71,19 @@ class DetailActivity : AppCompatActivity() {
 
         when(mood){
             "VeryHappy"->{
-                detail_mood_Iv.setImageResource(R.drawable.very_happy_image)
+                binding.detailMoodIv.setImageResource(R.drawable.very_happy_image)
             }
             "Happy"->{
-                detail_mood_Iv.setImageResource(R.drawable.happy_image)
+                binding.detailMoodIv.setImageResource(R.drawable.happy_image)
             }
             "Soso"->{
-                detail_mood_Iv.setImageResource(R.drawable.soso_image)
+                binding.detailMoodIv.setImageResource(R.drawable.soso_image)
             }
             "Sad"->{
-                detail_mood_Iv.setImageResource(R.drawable.sad_image)
+                binding.detailMoodIv.setImageResource(R.drawable.sad_image)
             }
             "Angry"->{
-                detail_mood_Iv.setImageResource(R.drawable.angry_image)
+                binding.detailMoodIv.setImageResource(R.drawable.angry_image)
             }
         }
     }

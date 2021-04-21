@@ -5,13 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.third_grade_project.R
 import com.example.third_grade_project.data.Base
+import com.example.third_grade_project.databinding.FragmentHomeBinding
 import com.example.third_grade_project.retrofit.WeatherClient
 import com.example.third_grade_project.viewModel.HomeViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Response
 import java.text.SimpleDateFormat
@@ -19,32 +20,35 @@ import java.util.*
 
 class HomeFragment : Fragment() {
 
+    private lateinit var binding : FragmentHomeBinding
+
     private val currentDateTime = Calendar.getInstance().time
     private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
     private var nowTime = SimpleDateFormat("HH:mm", Locale.KOREA).format(currentDateTime)
 
     private val homeViewModel : HomeViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        getWeather()
-
-        return view
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel.diaryFlow.observe(viewLifecycleOwner) {
             Log.d("Logd", it.size.toString())               // it은 일기 리스트를 나타냄
             if(it.any { diary -> nowDate == diary.date }){
-                diary_check_ani.visibility = View.VISIBLE
-                diary_no_check_ani.visibility =View.GONE
+                binding.diaryCheckAni.visibility = View.VISIBLE
+                binding.diaryNoCheckAni.visibility =View.GONE
             } else{
-                diary_check_ani.visibility = View.GONE
-                diary_no_check_ani.visibility = View.VISIBLE
+                binding.diaryCheckAni.visibility = View.GONE
+                binding.diaryNoCheckAni.visibility = View.VISIBLE
             }
         }
     }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        getWeather()
+
+        return binding.root
+    }
+
 
     // 날씨 API 설정
     private fun getWeather(){
@@ -56,19 +60,19 @@ class HomeFragment : Fragment() {
                 val res = response.body()?.response?.body?.items?.item?.get(0)
                 val rain = res?.rnYn.toString()
 
-                res?.wf.toString().also { weather_Tv.text = it }
+                res?.wf.toString().also { binding.weatherTv.text = it }
 
                 when (rain) {
                       "0" -> {
                         if (res?.wf.toString() == "맑음") {
-                            weather_img.setImageResource(R.drawable.weather_sunny)
+                            binding.weatherImg.setImageResource(R.drawable.weather_sunny)
                         } else {
-                            weather_img.setImageResource(R.drawable.weather_cloudy)
+                            binding.weatherImg.setImageResource(R.drawable.weather_cloudy)
                         }
                     } "1", "2", "4" -> {
-                        weather_img.setImageResource(R.drawable.weather_rainy)
+                            binding.weatherImg.setImageResource(R.drawable.weather_rainy)
                     } "3" -> {
-                        weather_img.setImageResource(R.drawable.weather_snowy)
+                            binding.weatherImg.setImageResource(R.drawable.weather_snowy)
                     }
                 }
 

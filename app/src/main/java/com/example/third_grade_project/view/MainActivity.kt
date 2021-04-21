@@ -10,19 +10,19 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.third_grade_project.R
+import com.example.third_grade_project.databinding.ActivityMainBinding
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.notification.NotificationCreator
 import com.example.third_grade_project.viewModel.HomeViewModel
 import com.example.third_grade_project.viewModelFactory.HomeViewModelFactory
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -34,11 +34,12 @@ class MainActivity : AppCompatActivity() {
     private val currentDateTime = Calendar.getInstance().time
     private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
 
+    private lateinit var binding : ActivityMainBinding
     lateinit var homeviewModel : HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val db = DiaryDb.getInstance(this)
         val dao = db.diaryDao
@@ -51,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(R.id.navigation_home, R.id.navigation_list, R.id.navigation_calender, R.id.navigation_settings)
         )
-        nav_view.setupWithNavController(navController)
+        binding.navView.setupWithNavController(navController)
 
         // notification settings
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        createNotificationChannel(channelId, "DemoChannel", "this is a demo")
+        createNotificationChannel(channelId, "Mood Diary", "오늘 일기를 작성하지 않으셨어요!")
 
 
         homeviewModel.diaryFlow.observe(this, Observer {
