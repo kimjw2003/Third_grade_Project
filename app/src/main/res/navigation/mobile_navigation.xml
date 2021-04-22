@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_calender"
-        android:name="com.example.third_grade_project.view.ui.fragment.CalenderFragment"
+        android:name="com.example.third_grade_project.view.fragment.CalenderFragment"
         android:label="@string/title_calender"
         tools:layout="@layout/fragment_calender" />
 
