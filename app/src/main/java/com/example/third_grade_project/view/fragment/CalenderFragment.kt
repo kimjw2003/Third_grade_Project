@@ -40,7 +40,8 @@ class CalenderFragment() : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calender, container, false)
 
         val dao = DiaryDb.getInstance(activity?.application!!).diaryDao
@@ -55,7 +56,7 @@ class CalenderFragment() : Fragment() {
 
     fun getDateChange(){
         initRecyclerView()
-        binding.calenderView.setOnDateChangeListener{view, year, month, day ->
+        binding.calenderView.setOnDateChangeListener{ view, year, month, day ->
             val monthInt : Int = month + 1
 
             val yearText : String = year.toString()
@@ -75,13 +76,17 @@ class CalenderFragment() : Fragment() {
     }
 
     private fun initRecyclerView(){
-        binding.calenderRcview.layoutManager = LinearLayoutManager(context)
+        val mLayoutManager = LinearLayoutManager(context)
+        mLayoutManager.reverseLayout = true
+        mLayoutManager.stackFromEnd = true
+        binding.calenderRcview.layoutManager = mLayoutManager
+
         displayDiaryList()
     }
 
     private fun displayDiaryList(){
         calenderViewModel.getDiaryDate(dateInfo).observe(viewLifecycleOwner)  {
-            binding.calenderRcview.adapter = CalenderListRcviewAdapter(it, { selectedItem: Diary ->listItemClicked((selectedItem))})
+            binding.calenderRcview.adapter = CalenderListRcviewAdapter(it, { selectedItem: Diary -> listItemClicked((selectedItem))})
         }
     }
 

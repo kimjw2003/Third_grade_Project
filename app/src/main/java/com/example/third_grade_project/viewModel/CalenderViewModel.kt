@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
-import java.util.*
 
 class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 
@@ -20,8 +19,7 @@ class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), 
     val inputTitle = MutableLiveData<String>()
     @Bindable
     val inputContent = MutableLiveData<String>()
-    @Bindable
-    val date = MutableLiveData<Date>()
+
 
     fun getDiaryDate(date: String) = liveData {
         val result = repository.getAllDateDiary(date)

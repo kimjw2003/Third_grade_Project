@@ -57,7 +57,10 @@ class ListFragment : Fragment() {
     }
 
     private fun initRecyclerView(){
-        binding.listRcView.layoutManager = LinearLayoutManager(context)
+        val mLayoutManager = LinearLayoutManager(context)
+        mLayoutManager.reverseLayout = true
+        mLayoutManager.stackFromEnd = true
+        binding.listRcView.layoutManager = mLayoutManager
         displayDiaryList()
     }
 
