@@ -15,8 +15,7 @@ class CalenderListRcviewAdapter(private val diaryList: List<Diary>, private val 
     : RecyclerView.Adapter<CalenderViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalenderViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding : ListItemBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
+        val binding : ListItemBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
         return CalenderViewHolder(binding)
     }
 

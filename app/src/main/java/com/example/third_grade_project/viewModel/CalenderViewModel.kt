@@ -5,8 +5,10 @@ import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.example.third_grade_project.db.Diary
 import com.example.third_grade_project.db.DiaryRepository
+import kotlinx.coroutines.launch
 import java.util.*
 
 class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
@@ -21,12 +23,12 @@ class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), 
     @Bindable
     val date = MutableLiveData<Date>()
 
-    val getDiary = liveData {
-        val result = repository.getAllDiary()
+    fun getDiaryDate(date: String) = liveData {
+        val result = repository.getAllDateDiary(date)
         emit(result)
     }
 
-    fun initDelete(diary: Diary){
+    fun initDelete(diary: Diary) = viewModelScope.launch{
         inputTitle.value = diary.title
         inputContent.value = diary.content
         isDelete = true

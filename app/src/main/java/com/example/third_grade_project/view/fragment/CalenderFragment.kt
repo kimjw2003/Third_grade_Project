@@ -19,33 +19,24 @@ import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.view.DetailActivity
 import com.example.third_grade_project.viewModel.CalenderViewModel
 import com.example.third_grade_project.viewModelFactory.CalenderViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
-class CalenderFragment : Fragment() {
+class CalenderFragment() : Fragment() {
 
     private lateinit var binding : FragmentCalenderBinding
     private lateinit var calenderViewModel : CalenderViewModel
+    private lateinit var dateInfo : String
+
+    private val currentDateTime = Calendar.getInstance().time
+    private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.calenderView.setOnDateChangeListener{view, year, month, day ->
-            val monthInt : Int = month + 1
+        dateInfo = nowDate
 
-            val yearText : String = year.toString()
-            var monthText : String = monthInt.toString()
-            if(monthText.length == 1){
-                monthText = "0$monthText"
-            }
-            var dayText : String = day.toString()
-            if(dayText.length == 1){
-                dayText = "0$dayText"
-            }
-
-            val dateInfo = "$yearText$monthText$dayText"
-            Log.d("Logd", dateInfo)
-
-        }
-
+        getDateChange()
     }
 
     override fun onCreateView(
@@ -59,9 +50,28 @@ class CalenderFragment : Fragment() {
         binding.myCalenderViewModel = calenderViewModel
         binding.lifecycleOwner = this
 
-        initRecyclerView()
-
         return binding.root
+    }
+
+    fun getDateChange(){
+        initRecyclerView()
+        binding.calenderView.setOnDateChangeListener{view, year, month, day ->
+            val monthInt : Int = month + 1
+
+            val yearText : String = year.toString()
+            var monthText : String = monthInt.toString()
+            if(monthText.length == 1){
+                monthText = "0$monthText"
+            }
+            var dayText : String = day.toString()
+            if(dayText.length == 1){
+                dayText = "0$dayText"
+            }
+
+            dateInfo = "$yearText.$monthText.$dayText"
+            Log.d("Logd", dateInfo)
+            initRecyclerView()
+        }
     }
 
     private fun initRecyclerView(){
@@ -70,7 +80,7 @@ class CalenderFragment : Fragment() {
     }
 
     private fun displayDiaryList(){
-        calenderViewModel.getDiary.observe(viewLifecycleOwner)  {
+        calenderViewModel.getDiaryDate(dateInfo).observe(viewLifecycleOwner)  {
             binding.calenderRcview.adapter = CalenderListRcviewAdapter(it, { selectedItem: Diary ->listItemClicked((selectedItem))})
         }
     }

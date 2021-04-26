@@ -26,7 +26,7 @@ class DiaryViewModel(private val repository: DiaryRepository) : ViewModel(), Obs
         emit(result)
     }
 
-    fun initDelete(diary: Diary){
+    fun initDelete(diary: Diary)= viewModelScope.launch{
         inputTitle.value = diary.title
         inputContent.value = diary.content
         isDelete = true
