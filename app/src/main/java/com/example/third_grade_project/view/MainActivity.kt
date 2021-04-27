@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.databinding.DataBindingUtil
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     lateinit var homeviewModel : HomeViewModel
+
+    private var mBackWait: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +100,17 @@ class MainActivity : AppCompatActivity() {
                 description = channelDescription
             }
             notificationManager?.createNotificationChannel(channel)
+        }
+    }
+
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - mBackWait >= 1500) {
+            mBackWait = System.currentTimeMillis()
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_LONG).show()
+        } else {
+            moveTaskToBack(true)
+            finish()
+            android.os.Process.killProcess(android.os.Process.myPid())
         }
     }
 }

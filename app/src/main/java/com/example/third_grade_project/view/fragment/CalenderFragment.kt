@@ -1,5 +1,6 @@
 package com.example.third_grade_project.view.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,7 @@ import com.example.third_grade_project.viewModel.CalenderViewModel
 import com.example.third_grade_project.viewModelFactory.CalenderViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CalenderFragment() : Fragment() {
 
@@ -84,8 +86,14 @@ class CalenderFragment() : Fragment() {
         displayDiaryList()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun displayDiaryList(){
-        calenderViewModel.getDiaryDate(dateInfo).observe(viewLifecycleOwner)  {
+        calenderViewModel.getDiaryDate(dateInfo).observe(viewLifecycleOwner) {
+            if(calenderViewModel.checkEmpty == "result is Empty"){
+                binding.rcViewEmptyCheck.text = "${dateInfo}에 작성하신 일기가 없습니다!"
+            } else{
+                binding.rcViewEmptyCheck.text = ""
+            }
             binding.calenderRcview.adapter = CalenderListRcviewAdapter(it, { selectedItem: Diary -> listItemClicked((selectedItem))})
         }
     }

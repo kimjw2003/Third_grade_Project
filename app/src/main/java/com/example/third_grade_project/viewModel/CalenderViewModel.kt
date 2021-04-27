@@ -1,5 +1,6 @@
 package com.example.third_grade_project.viewModel
 
+import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
@@ -14,6 +15,7 @@ class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), 
 
     private var isDelete = false
     private lateinit var diaryToDelete : Diary
+    lateinit var checkEmpty : String
 
     @Bindable
     val inputTitle = MutableLiveData<String>()
@@ -23,6 +25,11 @@ class CalenderViewModel(private val repository: DiaryRepository) : ViewModel(), 
 
     fun getDiaryDate(date: String) = liveData {
         val result = repository.getAllDateDiary(date)
+        if(result.isEmpty()){
+            checkEmpty = "result is Empty"
+        } else{
+            checkEmpty = "no Empty"
+        }
         emit(result)
     }
 
