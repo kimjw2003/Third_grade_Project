@@ -1,6 +1,6 @@
 package com.example.third_grade_project.retrofit
 
-import com.example.third_grade_project.data.Base
+import com.example.third_grade_project.model.Base
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

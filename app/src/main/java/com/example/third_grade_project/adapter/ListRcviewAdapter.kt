@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.third_grade_project.view.DetailActivity
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ListItemBinding
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 
 class ListRcviewAdapter(private val diaryList: List<Diary>, private val clickListener: (Diary)->Unit)
     : RecyclerView.Adapter<MyViewHolder>() {

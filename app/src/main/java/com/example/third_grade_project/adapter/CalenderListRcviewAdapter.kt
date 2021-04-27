@@ -7,8 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ListItemBinding
-import com.example.third_grade_project.db.Diary
-import com.example.third_grade_project.generated.callback.OnClickListener
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.view.DetailActivity
 
 class CalenderListRcviewAdapter(private val diaryList: List<Diary>, private val clickListener: (Diary)->Unit)

@@ -1,4 +1,4 @@
-package com.example.third_grade_project.data
+package com.example.third_grade_project.model
 
 data class Base(
     val response: Response?

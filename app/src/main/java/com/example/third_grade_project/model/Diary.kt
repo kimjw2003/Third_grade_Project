@@ -1,4 +1,4 @@
-package com.example.third_grade_project.db
+package com.example.third_grade_project.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,13 +1,12 @@
 package com.example.third_grade_project.viewModel
 
-import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 

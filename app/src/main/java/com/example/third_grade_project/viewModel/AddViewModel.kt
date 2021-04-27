@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.third_grade_project.Event
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 
@@ -17,6 +17,7 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     lateinit var mood : String
     lateinit var date : String
 
+    lateinit var checkNull : String
 
     @Bindable
     val inputTitle = MutableLiveData<String>()
@@ -31,6 +32,7 @@ class AddViewModel(private val repository: DiaryRepository)  : ViewModel(), Obse
     fun save(){
         val title = inputTitle.value!!
         val content = inputContent.value!!
+
         insert(Diary(title, 0, content, date, mood))
     }
 

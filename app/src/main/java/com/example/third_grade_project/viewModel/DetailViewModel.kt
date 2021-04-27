@@ -1,16 +1,14 @@
 package com.example.third_grade_project.viewModel
 
-import android.util.Log
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.third_grade_project.Event
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
-import java.util.*
 
 class DetailViewModel(private val repository: DiaryRepository) : ViewModel(), Observable {
 

@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityDetailBinding
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel

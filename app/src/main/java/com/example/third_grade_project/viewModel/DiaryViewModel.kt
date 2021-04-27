@@ -3,8 +3,7 @@ package com.example.third_grade_project.viewModel
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.*
-import com.example.third_grade_project.Event
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 import java.util.*

@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.third_grade_project.R
-import com.example.third_grade_project.data.Base
+import com.example.third_grade_project.model.Base
 import com.example.third_grade_project.databinding.FragmentHomeBinding
 import com.example.third_grade_project.retrofit.WeatherClient
 import com.example.third_grade_project.viewModel.HomeViewModel

@@ -3,11 +3,14 @@ package com.example.third_grade_project.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityAddBinding
 import com.example.third_grade_project.db.DiaryDb
@@ -46,7 +49,19 @@ class AddActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
                 finish()
-                }
-            })
+            }
+        })
+    }
+
+
+
+    private fun showDialog(){
+        SweetAlertDialog(this@AddActivity, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("올바르게 작성되지 않았습니다!")
+            .setContentText("제목 or 내용이 작성되지 않았습니다")
+            .setConfirmText("OK")
+            .setConfirmClickListener {
+
+            }.show()
         }
     }

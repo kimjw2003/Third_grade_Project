@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.third_grade_project.R
 import com.example.third_grade_project.adapter.CalenderListRcviewAdapter
 import com.example.third_grade_project.databinding.FragmentCalenderBinding
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.view.DetailActivity
@@ -22,7 +22,6 @@ import com.example.third_grade_project.viewModel.CalenderViewModel
 import com.example.third_grade_project.viewModelFactory.CalenderViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CalenderFragment() : Fragment() {
 

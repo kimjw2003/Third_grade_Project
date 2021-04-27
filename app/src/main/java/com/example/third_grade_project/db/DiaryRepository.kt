@@ -1,5 +1,7 @@
 package com.example.third_grade_project.db
 
+import com.example.third_grade_project.model.Diary
+
 class DiaryRepository(private val dao : DiaryDao) {
 
     suspend fun getAllDiary() =

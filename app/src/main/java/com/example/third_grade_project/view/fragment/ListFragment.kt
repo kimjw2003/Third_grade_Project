@@ -13,7 +13,7 @@ import com.example.third_grade_project.view.DetailActivity
 import com.example.third_grade_project.R
 import com.example.third_grade_project.adapter.ListRcviewAdapter
 import com.example.third_grade_project.databinding.FragmentListBinding
-import com.example.third_grade_project.db.Diary
+import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryDb
 import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.view.ChoiceActivity
@@ -66,7 +66,7 @@ class ListFragment : Fragment() {
 
     private fun displayDiaryList(){
         diaryviewmodel.getDiary.observe(viewLifecycleOwner)  {
-            binding.listRcView.adapter = ListRcviewAdapter(it, {selectedItem:Diary->listItemClicked((selectedItem))})
+            binding.listRcView.adapter = ListRcviewAdapter(it, {selectedItem: Diary ->listItemClicked((selectedItem))})
         }
     }
 

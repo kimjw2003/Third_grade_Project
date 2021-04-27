@@ -1,7 +1,7 @@
 package com.example.third_grade_project.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.third_grade_project.model.Diary
 import kotlinx.coroutines.flow.Flow
 
 @Dao
