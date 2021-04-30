@@ -12,10 +12,4 @@ class HomeViewModel(private val repository: DiaryRepository) : ViewModel(){
             emit(it)
         }
     }
-
-//    val date = liveData{
-//        val diary = repository.getAllDateDiary(Date().toString())
-//        emit(diary)
-//    }
-
 }

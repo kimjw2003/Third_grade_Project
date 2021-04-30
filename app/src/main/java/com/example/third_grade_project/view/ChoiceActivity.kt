@@ -10,11 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityChoiceBinding
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
-import com.example.third_grade_project.viewModel.ChoiceViewModel
-import com.example.third_grade_project.viewModelFactory.ChoiceViewModelFactory
 
+import com.example.third_grade_project.viewModel.ChoiceViewModel
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class ChoiceActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityChoiceBinding
@@ -24,10 +24,7 @@ class ChoiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_choice)
 
-        val dao = DiaryDb.getInstance(application).diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = ChoiceViewModelFactory(repository)
-        choiceViewModel = ViewModelProvider(this, factory).get(ChoiceViewModel::class.java)
+        choiceViewModel = ViewModelProvider(this).get(ChoiceViewModel::class.java)
         binding.myChoiceViewModel = choiceViewModel
         binding.lifecycleOwner = this
 

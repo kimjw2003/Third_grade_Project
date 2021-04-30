@@ -1,6 +1,7 @@
 package com.example.third_grade_project.viewModel
 
 import androidx.databinding.Observable
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +9,7 @@ import com.example.third_grade_project.Event
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 
-class ChoiceViewModel(private val repository: DiaryRepository) : ViewModel(), Observable{
+class ChoiceViewModel : ViewModel(), Observable{
 
     val statusMessage = MutableLiveData<Event<String>>()
 
@@ -34,9 +35,6 @@ class ChoiceViewModel(private val repository: DiaryRepository) : ViewModel(), Ob
         statusMessage.value = Event(angry)
     }
 
-    fun getDiary() = viewModelScope.launch {
-        val diary = repository.getAllDiary()
-    }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 

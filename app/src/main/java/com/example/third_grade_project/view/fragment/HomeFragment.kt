@@ -1,4 +1,4 @@
-package com.example.third_grade_project.view.ui.fragment
+package com.example.third_grade_project.view.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -24,7 +24,6 @@ class HomeFragment : Fragment() {
 
     private val currentDateTime = Calendar.getInstance().time
     private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
-    private var nowTime = SimpleDateFormat("HH:mm", Locale.KOREA).format(currentDateTime)
 
     private val homeViewModel : HomeViewModel by activityViewModels()
 

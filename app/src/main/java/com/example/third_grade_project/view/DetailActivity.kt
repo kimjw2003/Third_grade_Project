@@ -9,11 +9,10 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityDetailBinding
 import com.example.third_grade_project.model.Diary
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.DetailViewModel
-import com.example.third_grade_project.viewModelFactory.DetailViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityDetailBinding
@@ -29,10 +28,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
-        val dao = DiaryDb.getInstance(application).diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = DetailViewModelFactory(repository)
-        detailViewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)
+        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         binding.myDetailViewModel = detailViewModel
         binding.lifecycleOwner = this
 

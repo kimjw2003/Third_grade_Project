@@ -3,8 +3,6 @@ package com.example.third_grade_project.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -13,14 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityAddBinding
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.viewModel.AddViewModel
-import com.example.third_grade_project.viewModelFactory.AddViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
-
+@AndroidEntryPoint
 class AddActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityAddBinding
@@ -33,10 +29,7 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add)
 
-        val dao = DiaryDb.getInstance(application).diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = AddViewModelFactory(repository)
-        addViewModel = ViewModelProvider(this, factory).get(AddViewModel::class.java)
+        addViewModel = ViewModelProvider(this).get(AddViewModel::class.java)
         binding.myAddViewModel = addViewModel
         binding.lifecycleOwner = this
 

@@ -15,14 +15,13 @@ import com.example.third_grade_project.R
 import com.example.third_grade_project.adapter.CalenderListRcviewAdapter
 import com.example.third_grade_project.databinding.FragmentCalenderBinding
 import com.example.third_grade_project.model.Diary
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.view.DetailActivity
 import com.example.third_grade_project.viewModel.CalenderViewModel
-import com.example.third_grade_project.viewModelFactory.CalenderViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class CalenderFragment() : Fragment() {
 
     private lateinit var binding : FragmentCalenderBinding
@@ -45,10 +44,7 @@ class CalenderFragment() : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calender, container, false)
 
-        val dao = DiaryDb.getInstance(activity?.application!!).diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = CalenderViewModelFactory(repository)
-        calenderViewModel = ViewModelProvider(this, factory).get(CalenderViewModel::class.java)
+        calenderViewModel = ViewModelProvider(this).get(CalenderViewModel::class.java)
         binding.myCalenderViewModel = calenderViewModel
         binding.lifecycleOwner = this
 

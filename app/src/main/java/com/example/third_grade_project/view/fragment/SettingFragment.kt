@@ -1,4 +1,4 @@
-package com.example.third_grade_project.view.ui.fragment
+package com.example.third_grade_project.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

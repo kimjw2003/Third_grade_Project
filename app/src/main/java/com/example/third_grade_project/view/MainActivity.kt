@@ -19,14 +19,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityMainBinding
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.notification.NotificationCreator
 import com.example.third_grade_project.viewModel.HomeViewModel
-import com.example.third_grade_project.viewModelFactory.HomeViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val channelId = "com.example.third_grade_project"
@@ -44,11 +43,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val db = DiaryDb.getInstance(this)
-        val dao = db.diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = HomeViewModelFactory(repository)
-        homeviewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
+        homeviewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
