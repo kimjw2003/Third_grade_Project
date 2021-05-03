@@ -14,7 +14,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun getRepository(diaryDao: DiaryDao) : DiaryRepository{
+    fun provideRepository(diaryDao: DiaryDao) : DiaryRepository{
         return DiaryRepository(diaryDao)
     }
 }

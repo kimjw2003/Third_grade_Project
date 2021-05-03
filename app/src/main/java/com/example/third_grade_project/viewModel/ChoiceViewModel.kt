@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.third_grade_project.Event
-import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 
 class ChoiceViewModel : ViewModel(), Observable{

@@ -1,5 +1,6 @@
 package com.example.third_grade_project.module
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.third_grade_project.db.DiaryDb
@@ -15,8 +16,8 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun getDatabase(context: Context) : DiaryDb {
-        return Room.databaseBuilder(context, DiaryDb::class.java, "diary_data_database")
+    fun provideDatabase(application: Application) : DiaryDb {
+        return Room.databaseBuilder(application, DiaryDb::class.java, "diary_data_database")
             .fallbackToDestructiveMigration()
             .build()
     }

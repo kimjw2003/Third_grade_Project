@@ -14,7 +14,7 @@ class DaoModule {
 
     @Singleton
     @Provides
-    fun getDao(diaryDb: DiaryDb) : DiaryDao{
+    fun provideDao(diaryDb: DiaryDb) : DiaryDao{
         return diaryDb.diaryDao
     }
 }

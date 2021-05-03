@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.third_grade_project.model.Diary
 
-@Database(entities = [Diary::class], version = 3)
+@Database(entities = [Diary::class], version = 3, exportSchema = false)
 abstract class DiaryDb : RoomDatabase() {
     abstract val diaryDao : DiaryDao
 

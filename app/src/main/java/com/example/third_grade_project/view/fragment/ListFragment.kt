@@ -14,14 +14,13 @@ import com.example.third_grade_project.R
 import com.example.third_grade_project.adapter.ListRcviewAdapter
 import com.example.third_grade_project.databinding.FragmentListBinding
 import com.example.third_grade_project.model.Diary
-import com.example.third_grade_project.db.DiaryDb
-import com.example.third_grade_project.db.DiaryRepository
 import com.example.third_grade_project.view.ChoiceActivity
 import com.example.third_grade_project.viewModel.DiaryViewModel
-import com.example.third_grade_project.viewModelFactory.DiaryViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class ListFragment : Fragment() {
 
     private lateinit var binding : FragmentListBinding
@@ -44,10 +43,7 @@ class ListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
 
-        val dao = DiaryDb.getInstance(activity?.application!!).diaryDao
-        val repository = DiaryRepository(dao)
-        val factory = DiaryViewModelFactory(repository)
-        diaryviewmodel = ViewModelProvider(this, factory).get(DiaryViewModel::class.java)
+        diaryviewmodel = ViewModelProvider(this).get(DiaryViewModel::class.java)
         binding.myViewModel = diaryviewmodel
         binding.lifecycleOwner = this
 

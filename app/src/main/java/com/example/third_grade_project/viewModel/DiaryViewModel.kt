@@ -8,6 +8,7 @@ import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
 class DiaryViewModel @ViewModelInject constructor(
     private val repository: DiaryRepository
