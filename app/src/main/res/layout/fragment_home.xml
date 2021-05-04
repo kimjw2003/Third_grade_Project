@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -9,9 +11,6 @@
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.HomeFragment">
@@ -62,6 +61,17 @@
         app:lottie_rawRes="@raw/no_check_anim"
         app:lottie_autoPlay="true" />
 
+    <Spinner
+        android:id="@+id/location_Sp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/spinner_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_box" />
+
     <ImageView
         android:id="@+id/weather_img"
         android:layout_width="100dp"
@@ -83,10 +93,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toEndOf="@+id/weather_img"
-        app:layout_constraintTop_toBottomOf="@+id/title_box"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintTop_toBottomOf="@+id/location_Sp"
+        app:layout_constraintVertical_bias="0.123" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
