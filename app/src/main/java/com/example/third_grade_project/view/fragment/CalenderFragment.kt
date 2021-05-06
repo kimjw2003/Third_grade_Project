@@ -53,7 +53,7 @@ class CalenderFragment() : Fragment() {
 
     fun getDateChange(){
         initRecyclerView()
-        binding.calenderView.setOnDateChangeListener{ view, year, month, day ->
+        binding.calenderView.setOnDateChangeListener{ _, year, month, day ->
             val monthInt : Int = month + 1
 
             val yearText : String = year.toString()

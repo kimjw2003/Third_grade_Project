@@ -30,11 +30,11 @@ class ChoiceActivity : AppCompatActivity() {
 
 
         choiceViewModel.statusMessage.observe(this, Observer {
-            it.getContentIfNotHandled()?.let { it ->
-                Toast.makeText(this, "기분 : $it", Toast.LENGTH_SHORT).show()
+            it.getContentIfNotHandled()?.let { mood ->
+                Toast.makeText(this, "기분 : $mood", Toast.LENGTH_SHORT).show()
                 var intent = Intent(this@ChoiceActivity, AddActivity::class.java)
-                intent.putExtra("mood", it)
-                Log.d("Logd", it)
+                intent.putExtra("mood", mood)
+                Log.d("Logd", mood)
                 startActivity(intent)
                 finish()
             }

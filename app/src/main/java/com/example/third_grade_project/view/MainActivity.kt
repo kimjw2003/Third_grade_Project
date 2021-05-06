@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
-
     private var mBackWait: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_home, R.id.navigation_list, R.id.navigation_calender, R.id.navigation_settings)
-        )
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(R.id.navigation_home, R.id.navigation_list, R.id.navigation_calender, R.id.navigation_settings)
+//        )
         binding.navView.setupWithNavController(navController)
 
     }
