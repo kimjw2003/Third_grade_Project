@@ -3,6 +3,8 @@ package com.example.third_grade_project.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -37,7 +39,26 @@ class AddActivity : AppCompatActivity() {
         addViewModel.mood = intent.getStringExtra("mood").toString()
         Log.d("Logd", "mood is ${intent.getStringExtra("mood")}")
 
-        addViewModel.message.observe(this, Observer {
+        binding.addTitleEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                binding.addNextBtn.isClickable = binding.addTitleEt.length() > 0
+            }
+        })
+
+        goSave()
+    }
+
+
+    private fun goSave(){
+        addViewModel.message.observe(this, {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
@@ -45,7 +66,6 @@ class AddActivity : AppCompatActivity() {
             }
         })
     }
-
 
 
     private fun showDialog(){

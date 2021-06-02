@@ -51,7 +51,7 @@ class CalenderFragment() : Fragment() {
         return binding.root
     }
 
-    fun getDateChange(){
+    private fun getDateChange(){
         initRecyclerView()
         binding.calenderView.setOnDateChangeListener{ _, year, month, day ->
             val monthInt : Int = month + 1

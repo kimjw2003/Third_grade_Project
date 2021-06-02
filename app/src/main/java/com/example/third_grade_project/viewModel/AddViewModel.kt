@@ -11,7 +11,6 @@ import com.example.third_grade_project.Event
 import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.db.DiaryRepository
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class AddViewModel @ViewModelInject constructor(
     private val repository: DiaryRepository

@@ -56,6 +56,7 @@
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:text="@={myAddViewModel.inputContent}"
+        android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_content_Tv" />
