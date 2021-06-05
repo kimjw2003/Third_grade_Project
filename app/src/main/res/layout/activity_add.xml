@@ -67,7 +67,6 @@
         android:layout_height="45dp"
         android:layout_marginBottom="25dp"
         android:text="작성완료"
-        android:onClick="@{()->myAddViewModel.save()}"
         android:textStyle="bold"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"

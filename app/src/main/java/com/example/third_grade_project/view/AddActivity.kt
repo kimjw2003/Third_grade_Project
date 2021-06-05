@@ -39,21 +39,15 @@ class AddActivity : AppCompatActivity() {
         addViewModel.mood = intent.getStringExtra("mood").toString()
         Log.d("Logd", "mood is ${intent.getStringExtra("mood")}")
 
-        binding.addTitleEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+        binding.addNextBtn.setOnClickListener {
+            Log.d("Logd", "button clicked")
+            if(binding.addTitleEt.text.isEmpty() || binding.addContentTv.text.isEmpty()){
+                showDialog()
+            }else {
+                addViewModel.save()
+                goSave()
             }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                binding.addNextBtn.isClickable = binding.addTitleEt.length() > 0
-            }
-        })
-
-        goSave()
+        }
     }
 
 

@@ -79,8 +79,6 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-
-
     }
 
     fun showDialog(){
