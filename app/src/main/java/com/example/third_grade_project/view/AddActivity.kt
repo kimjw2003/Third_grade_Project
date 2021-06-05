@@ -67,8 +67,6 @@ class AddActivity : AppCompatActivity() {
             .setTitleText("올바르게 작성되지 않았습니다!")
             .setContentText("제목 or 내용이 작성되지 않았습니다")
             .setConfirmText("OK")
-            .setConfirmClickListener {
-
-            }.show()
+            .show()
         }
     }
