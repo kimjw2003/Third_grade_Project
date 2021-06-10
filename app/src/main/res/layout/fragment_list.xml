@@ -43,7 +43,8 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="28dp"
-        android:background="@mipmap/pencil_img_asset_round"
+        android:src="@drawable/pencil_image"
+        app:maxImageSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

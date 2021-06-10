@@ -1,15 +1,16 @@
 package com.example.third_grade_project.view
 
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityMainBinding
+import com.example.third_grade_project.notification.AlarmManager
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        setAlarm(this)
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
@@ -46,5 +49,9 @@ class MainActivity : AppCompatActivity() {
             finish()
             android.os.Process.killProcess(android.os.Process.myPid())
         }
+    }
+
+    private fun setAlarm(context: Context){
+        AlarmManager.register(context, 9, 35, 0)
     }
 }

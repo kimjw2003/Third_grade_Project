@@ -62,10 +62,10 @@ class DetailActivity : AppCompatActivity() {
             speech()
         }
 
-        textToSpeech = TextToSpeech(this) { status ->       //tts 설정
+        //tts 설정
+        textToSpeech = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 Log.d("Logd", "허용1")
-                //사용할 언어를 설정
                 val result = textToSpeech?.setLanguage(Locale.KOREAN)
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     Toast.makeText(this@DetailActivity, "이 언어는 지원하지 않습니다.", Toast.LENGTH_SHORT).show()
@@ -81,7 +81,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    fun showDialog(){
+    private fun showDialog(){
         SweetAlertDialog(this@DetailActivity, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("일기를 삭제하시겠습니까?")
                 .setContentText("다시는 되돌릴 수 없습니다!")
@@ -93,8 +93,7 @@ class DetailActivity : AppCompatActivity() {
             }.show()
     }
 
-    fun moodCheck(){
-
+    private fun moodCheck(){
         when(mood){
             "VeryHappy"->{
                 binding.detailMoodIv.setImageResource(R.drawable.very_happy_image)
@@ -114,7 +113,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun speech(){
+    private fun speech(){
         val speechData = binding.detailContentTv.text
         textToSpeech?.speak(speechData.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
