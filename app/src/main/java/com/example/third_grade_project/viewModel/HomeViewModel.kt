@@ -12,11 +12,14 @@ class HomeViewModel @ViewModelInject constructor(
     private val repository: DiaryRepository
 ) : ViewModel(), Observable{
 
+    lateinit var checkable : String
+
     val diaryFlow = liveData {
         repository.getAllDiaryFlow().collect {
             emit(it)
         }
     }
+
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 

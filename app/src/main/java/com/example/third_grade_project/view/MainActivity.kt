@@ -52,6 +52,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAlarm(context: Context){
-        AlarmManager.register(context, 9, 35, 0)
+        AlarmManager.register(context, 21, 0, 0)
     }
 }

@@ -32,12 +32,12 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.writingFabBtn.setOnClickListener {
+        binding.listWritingBtn.setOnClickListener {
             val intent = Intent(activity, ChoiceActivity::class.java)
             startActivity(intent)
         }
 
-        binding.dateTv.text = date
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

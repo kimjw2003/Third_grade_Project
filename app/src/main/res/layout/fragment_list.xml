@@ -15,38 +15,37 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.ListFragment">
 
-    <TextView
-        android:id="@+id/date_Tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
+    <ImageView
+        android:id="@+id/list_background_Img"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:src="@drawable/diary_sub_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/list_writing_Btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="@string/write_diary_text"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/writing_btn_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_background_Img" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_rcView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/writing_fabBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
-        android:src="@drawable/pencil_image"
-        app:maxImageSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/list_writing_Btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

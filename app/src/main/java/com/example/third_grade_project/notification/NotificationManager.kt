@@ -26,6 +26,7 @@ object NotificationManager {
                 .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher_foreground)) //BitMap 이미지 요구
                 .setContentTitle(title)
                 .setContentText(content) // 더 많은 내용이라서 일부만 보여줘야 하는 경우 아래 주석을 제거하면 setContentText에 있는 문자열 대신 아래 문자열을 보여줌
+                .setSmallIcon(R.drawable.diary_logo)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(content))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent) // 사용자가 노티피케이션을 탭시 MainActivity로 이동하도록 설정

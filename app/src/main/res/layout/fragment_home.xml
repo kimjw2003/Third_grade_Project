@@ -15,88 +15,48 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="80dp"
-        android:text="오늘 일기 작성 여부"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/diary_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title_box"
-        android:layout_width="300dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/wrote_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/diary_check_ani"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/title_box"
-        app:layout_constraintEnd_toEndOf="@+id/title_box"
-        app:layout_constraintStart_toStartOf="@+id/title_box"
-        app:layout_constraintTop_toTopOf="@+id/title_box"
-        app:lottie_rawRes="@raw/check_anim"
-        app:lottie_autoPlay="true" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/diary_no_check_ani"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/title_box"
-        app:layout_constraintEnd_toEndOf="@+id/title_box"
-        app:layout_constraintStart_toStartOf="@+id/title_box"
-        app:layout_constraintTop_toTopOf="@+id/title_box"
-        app:lottie_rawRes="@raw/no_check_anim"
-        app:lottie_autoPlay="true" />
-
-    <Spinner
-        android:id="@+id/location_Sp"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/spinner_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_box" />
-
     <ImageView
-        android:id="@+id/weather_img"
+        android:id="@+id/diary_check_Img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="148dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_Sp"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/weather_Tv"
+        android:id="@+id/diary_check_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="날씨 텍스트"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diary_check_Img"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/diary_check_Btn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_img"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/diary_check_Tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
