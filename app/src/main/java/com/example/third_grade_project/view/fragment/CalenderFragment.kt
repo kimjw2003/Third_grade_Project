@@ -77,6 +77,7 @@ class CalenderFragment() : Fragment() {
         mLayoutManager.reverseLayout = true
         mLayoutManager.stackFromEnd = true
         binding.calenderRcview.layoutManager = mLayoutManager
+        binding.calenderDateTv.text = dateInfo
 
         displayDiaryList()
     }
@@ -85,7 +86,7 @@ class CalenderFragment() : Fragment() {
     private fun displayDiaryList(){
         calenderViewModel.getDiaryDate(dateInfo).observe(viewLifecycleOwner) {
             if(calenderViewModel.checkEmpty == "result is Empty"){
-                binding.rcViewEmptyCheck.text = "${dateInfo}에 작성하신 일기가 없습니다!"
+                binding.rcViewEmptyCheck.text = "작성된 일기가 없습니다."
             } else{
                 binding.rcViewEmptyCheck.text = ""
             }
