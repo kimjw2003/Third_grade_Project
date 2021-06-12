@@ -13,18 +13,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple"
     tools:context=".view.AddActivity">
 
     <TextView
-        android:id="@+id/add_title_Tv"
+        android:id="@+id/add_background"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:background="@drawable/detail_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/add_date_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="60dp"
-        android:text="제목"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:text="date"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,47 +46,41 @@
         android:id="@+id/add_title_Et"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:hint="@string/add_title"
         android:text="@={myAddViewModel.inputTitle}"
-        android:hint="제목을 입력해주세요"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_title_Tv" />
-
-    <TextView
-        android:id="@+id/add_content_Tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="84dp"
-        android:text="오늘 무슨일이 있으셨나요?"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_title_Et" />
+        app:layout_constraintTop_toTopOf="@+id/add_background" />
 
     <EditText
         android:id="@+id/add_content_Et"
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:text="@={myAddViewModel.inputContent}"
+        android:layout_marginTop="36dp"
         android:gravity="top"
+        android:hint="@string/add_content"
+        android:text="@={myAddViewModel.inputContent}"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_content_Tv" />
+        app:layout_constraintTop_toBottomOf="@+id/add_title_Et" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_next_Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="25dp"
-        android:text="작성완료"
-        android:textStyle="bold"
-        android:textSize="10sp"
+        android:background="@drawable/check_btn_background"
+        android:text="작성 완료"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_content_Et"
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -35,13 +35,15 @@ class AddActivity : AppCompatActivity() {
         binding.myAddViewModel = addViewModel
         binding.lifecycleOwner = this
 
+        binding.addDateTv.text = date
+
         addViewModel.date = date
         addViewModel.mood = intent.getStringExtra("mood").toString()
         Log.d("Logd", "mood is ${intent.getStringExtra("mood")}")
 
         binding.addNextBtn.setOnClickListener {
             Log.d("Logd", "button clicked")
-            if(binding.addTitleEt.text.isEmpty() || binding.addContentTv.text.isEmpty()){
+            if(binding.addTitleEt.text.isEmpty() || binding.addContentEt.text.isEmpty()){
                 showDialog()
             }else {
                 addViewModel.save()
