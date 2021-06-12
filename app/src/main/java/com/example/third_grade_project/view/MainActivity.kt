@@ -18,9 +18,6 @@ import java.util.*
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val currentDateTime = Calendar.getInstance().time
-    private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
-
     private lateinit var binding : ActivityMainBinding
 
     private var mBackWait: Long = 0

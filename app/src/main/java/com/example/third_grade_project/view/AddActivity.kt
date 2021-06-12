@@ -25,7 +25,7 @@ class AddActivity : AppCompatActivity() {
     private lateinit var addViewModel : AddViewModel
 
     private val currentDateTime = Calendar.getInstance().time
-    private var date = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
+    private var date = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).format(currentDateTime)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

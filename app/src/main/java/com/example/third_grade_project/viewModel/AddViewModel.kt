@@ -1,5 +1,6 @@
 package com.example.third_grade_project.viewModel
 
+import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.hilt.lifecycle.ViewModelInject

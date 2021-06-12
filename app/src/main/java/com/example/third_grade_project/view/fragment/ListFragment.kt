@@ -26,9 +26,6 @@ class ListFragment : Fragment() {
     private lateinit var binding : FragmentListBinding
     private lateinit var diaryviewmodel : DiaryViewModel
 
-    private val currentDateTime = Calendar.getInstance().time
-    private var date = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

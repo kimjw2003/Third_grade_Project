@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.R
-import com.example.third_grade_project.model.Base
 import com.example.third_grade_project.databinding.FragmentHomeBinding
 import com.example.third_grade_project.view.ChoiceActivity
 import com.example.third_grade_project.viewModel.HomeViewModel
@@ -29,7 +28,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
 
     private val currentDateTime = Calendar.getInstance().time
-    private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
+    private var nowDate = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).format(currentDateTime)
 
     private lateinit var homeViewmodel : HomeViewModel
 

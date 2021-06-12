@@ -29,7 +29,6 @@ class DetailActivity : AppCompatActivity() {
     private var mood : String? = null
 
     private var textToSpeech : TextToSpeech? = null
-    private val REQUEST_CODE_SPEECH_INPUT = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -29,7 +29,7 @@ class CalenderFragment() : Fragment() {
     private lateinit var dateInfo : String
 
     private val currentDateTime = Calendar.getInstance().time
-    private var nowDate = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
+    private var nowDate = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).format(currentDateTime)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -66,7 +66,7 @@ class CalenderFragment() : Fragment() {
                 dayText = "0$dayText"
             }
 
-            dateInfo = "$yearText.$monthText.$dayText"
+            dateInfo = yearText+"년 "+monthText+"월 "+dayText+"일"
             Log.d("Logd", dateInfo)
             initRecyclerView()
         }
