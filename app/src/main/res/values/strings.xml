@@ -19,4 +19,5 @@
     <string name="write_diary_text">일기 작성</string>
     <string name="add_title">제목을 입력해주세요.</string>
     <string name="add_content">오늘은 어떤일이 있었나요?</string>
+    <string name="chioce_title">오늘 기분을 선택해주세요!</string>
 </resources>

@@ -10,5 +10,6 @@
     <color name="main_color">#80699f</color>
     <color name="sub_color">#B6778A</color>
     <color name="purple">#5E4386</color>
+    <color name="gray">#848484</color>
 
 </resources>

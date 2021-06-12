@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="myChoiceViewModel"
@@ -8,23 +10,46 @@
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple"
     tools:context=".view.ChoiceActivity">
+
+    <TextView
+        android:id="@+id/choice_background"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:background="@drawable/detail_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/choice_title_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/chioce_title"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/choice_background" />
 
     <Button
         android:id="@+id/very_happy_btn"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginTop="130dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="120dp"
-        android:onClick="@{()->myChoiceViewModel.choiceVeryHappy()}"
         android:background="@drawable/very_happy_image"
+        android:onClick="@{()->myChoiceViewModel.choiceVeryHappy()}"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/choice_background" />
 
     <TextView
         android:id="@+id/very_happy_Tv"
@@ -44,12 +69,12 @@
         android:id="@+id/happy_btn"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="120dp"
-        android:onClick="@{()->myChoiceViewModel.choiceHappy()}"
+        android:layout_marginTop="130dp"
         android:background="@drawable/happy_image"
+        android:onClick="@{()->myChoiceViewModel.choiceHappy()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/very_happy_btn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/choice_background" />
 
     <TextView
         android:id="@+id/happy_Tv"
