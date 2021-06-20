@@ -90,7 +90,7 @@ class CalenderFragment() : Fragment() {
             } else{
                 binding.rcViewEmptyCheck.text = ""
             }
-            binding.calenderRcview.adapter = CalenderListRcviewAdapter(it, { selectedItem: Diary -> listItemClicked((selectedItem))})
+            binding.calenderRcview.adapter = CalenderListRcviewAdapter(it) { selectedItem: Diary -> listItemClicked((selectedItem)) }
         }
     }
 

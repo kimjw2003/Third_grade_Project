@@ -17,8 +17,6 @@ import com.example.third_grade_project.model.Diary
 import com.example.third_grade_project.view.ChoiceActivity
 import com.example.third_grade_project.viewModel.DiaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class ListFragment : Fragment() {
@@ -59,7 +57,7 @@ class ListFragment : Fragment() {
 
     private fun displayDiaryList(){
         diaryviewmodel.getDiary.observe(viewLifecycleOwner)  {
-            binding.listRcView.adapter = ListRcviewAdapter(it, {selectedItem: Diary ->listItemClicked((selectedItem))})
+            binding.listRcView.adapter = ListRcviewAdapter(it) { selectedItem: Diary -> listItemClicked((selectedItem)) }
         }
     }
 

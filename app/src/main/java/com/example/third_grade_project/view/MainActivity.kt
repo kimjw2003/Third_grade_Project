@@ -12,8 +12,6 @@ import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityMainBinding
 import com.example.third_grade_project.notification.AlarmManager
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -30,9 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(R.id.navigation_home, R.id.navigation_list, R.id.navigation_calender, R.id.navigation_settings)
-//        )
         binding.navView.setupWithNavController(navController)
 
     }

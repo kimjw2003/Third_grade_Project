@@ -3,12 +3,9 @@ package com.example.third_grade_project.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.R
@@ -55,8 +52,8 @@ class AddActivity : AppCompatActivity() {
 
     private fun goSave(){
         addViewModel.message.observe(this, {
-            it.getContentIfNotHandled()?.let {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            it.getContentIfNotHandled()?.let { toast ->
+                Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
                 finish()
             }

@@ -17,7 +17,27 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="write_diary_text">일기 작성</string>
+    <!-- add -->
     <string name="add_title">제목을 입력해주세요.</string>
     <string name="add_content">오늘은 어떤일이 있었나요?</string>
+    <string name="add_addbtn">작성 완료</string>
+    <!-- write -->
+    <!-- choice -->
     <string name="chioce_title">오늘 기분을 선택해주세요!</string>
+    <string name="choice_veryhappy">Very Happy</string>
+    <string name="choice_happy">Happy</string>
+    <string name="choice_soso">Soso</string>
+    <string name="choice_sad">Sad</string>
+    <string name="choice_angry">Angry</string>
+    <!-- setting -->
+    <string name="setting_title">setting</string>
+    <!-- detail -->
+    <string name="detail_title">title</string>
+    <string name="detail_date">date</string>
+    <string name="detail_content">content</string>
+    <!-- listitem -->
+    <string name="listitem_title">Title</string>
+    <string name="listitem_date">date</string>
+
+
 </resources>

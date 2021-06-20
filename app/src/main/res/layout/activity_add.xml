@@ -73,7 +73,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/check_btn_background"
-        android:text="작성 완료"
+        android:text="@string/add_addbtn"
         android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

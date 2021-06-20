@@ -40,7 +40,7 @@ class AddViewModel @ViewModelInject constructor(
         insert(Diary(title, 0, content, date, mood))
     }
 
-    fun insert(diary: Diary) = viewModelScope.launch {
+    private fun insert(diary: Diary) = viewModelScope.launch {
         repository.insert(diary)
         isDelete = false
 

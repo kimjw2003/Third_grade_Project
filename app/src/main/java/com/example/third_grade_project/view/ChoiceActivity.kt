@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityChoiceBinding
-
 import com.example.third_grade_project.viewModel.ChoiceViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,10 +27,10 @@ class ChoiceActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
 
-        choiceViewModel.statusMessage.observe(this, Observer {
+        choiceViewModel.statusMessage.observe(this, {
             it.getContentIfNotHandled()?.let { mood ->
                 Toast.makeText(this, "기분 : $mood", Toast.LENGTH_SHORT).show()
-                var intent = Intent(this@ChoiceActivity, AddActivity::class.java)
+                val intent = Intent(this@ChoiceActivity, AddActivity::class.java)
                 intent.putExtra("mood", mood)
                 Log.d("Logd", mood)
                 startActivity(intent)

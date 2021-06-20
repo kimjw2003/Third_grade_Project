@@ -28,10 +28,10 @@ class CalenderViewModel @ViewModelInject constructor(
 
     fun getDiaryDate(date: String) = liveData {
         val result = repository.getAllDateDiary(date)
-        if(result.isEmpty()){
-            checkEmpty = "result is Empty"
+        checkEmpty = if(result.isEmpty()){
+            "result is Empty"
         } else{
-            checkEmpty = "no Empty"
+            "no Empty"
         }
         emit(result)
     }
