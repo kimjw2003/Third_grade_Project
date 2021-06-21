@@ -11,5 +11,6 @@
     <color name="sub_color">#B6778A</color>
     <color name="purple">#5E4386</color>
     <color name="gray">#848484</color>
+    <color name="light_gray">#D9D9D9</color>
 
 </resources>
