@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.FragmentHomeBinding
 import com.example.third_grade_project.view.ChoiceActivity
@@ -34,7 +36,6 @@ class HomeFragment : Fragment() {
         binding.myHomeViewModel = homeViewmodel
         binding.lifecycleOwner = this
 
-
         homeViewmodel.diaryFlow.observe(viewLifecycleOwner) {
             Log.d("Logd", it.size.toString())               // it은 일기 리스트를 나타냄
             if(it.any { diary -> nowDate == diary.date }){
@@ -45,7 +46,7 @@ class HomeFragment : Fragment() {
                 binding.diaryCheckTv.text = "일기 작성 완료!"
                 binding.diaryCheckTv.setTextColor(Color.parseColor("#80699f"))
                 binding.diaryCheckBtn.setOnClickListener {
-
+                        Navigation.findNavController(it).navigate(R.id.action_navigationHome_to_navigationList)
                 }
                 Log.d("Logd", "written")
 
