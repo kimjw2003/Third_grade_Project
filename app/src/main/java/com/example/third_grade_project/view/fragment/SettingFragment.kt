@@ -10,7 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.FragmentSettingBinding
 import com.example.third_grade_project.viewModel.SettingViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingFragment : Fragment() {
 
     private lateinit var binding : FragmentSettingBinding
@@ -19,9 +21,9 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        settingViewmodel = ViewModelProvider(this).get(SettingViewModel::class.java)
-//        binding.mySettingViewModel = settingViewmodel
-//        binding.lifecycleOwner = this
+        settingViewmodel = ViewModelProvider(this).get(SettingViewModel::class.java)
+        binding.mySettingViewModel = settingViewmodel
+        binding.lifecycleOwner = this
 
 
     }
