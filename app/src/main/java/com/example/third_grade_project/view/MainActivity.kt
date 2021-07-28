@@ -3,11 +3,13 @@ package com.example.third_grade_project.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.third_grade_project.Application
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityMainBinding
 import com.example.third_grade_project.notification.AlarmManager
@@ -25,7 +27,11 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         //여기서 알람 판단
-        setAlarm(this)
+        val checkable : String = Application.prefs.getString("noti", "")
+        Log.d("Logd", checkable)
+        if(checkable == "notChecked") {
+            setAlarm(this)
+        }
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
