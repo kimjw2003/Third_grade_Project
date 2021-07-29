@@ -1,18 +1,14 @@
 package com.example.third_grade_project.view
 
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.third_grade_project.Application
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.ActivityMainBinding
-import com.example.third_grade_project.notification.AlarmManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
