@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Third_grade_Project</string>
+    <string name="app_name">Mood Diary</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -31,6 +31,8 @@
     <string name="choice_angry">Angry</string>
     <!-- setting -->
     <string name="setting_title">setting</string>
+    <string name="setting_noti">알림 허용</string>
+    <string name="setting_noti_content">ℹ️알림은 뭐할때 오나요?</string>
     <!-- detail -->
     <string name="detail_title">title</string>
     <string name="detail_date">date</string>
