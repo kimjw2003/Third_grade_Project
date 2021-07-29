@@ -1,20 +1,19 @@
 package com.example.third_grade_project.view.fragment
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.third_grade_project.Application
 import com.example.third_grade_project.R
 import com.example.third_grade_project.databinding.FragmentSettingBinding
-import com.example.third_grade_project.view.MainActivity
+import com.example.third_grade_project.notification.AlarmManager
 import com.example.third_grade_project.viewModel.SettingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +35,9 @@ class SettingFragment : Fragment() {
         binding.alarmSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (binding.alarmSwitch.isChecked) {
                 Application.prefs.setString("noti", "checked")
-                Log.d("Logd", "checked")
+                Log.d("Logd", "Checked")
+                setAlarm(requireContext())
+
             } else {
                 Application.prefs.setString("noti", "notChecked")
                 Log.d("Logd", "Notchecked")
@@ -45,7 +46,7 @@ class SettingFragment : Fragment() {
 
         if(checkable == "checked"){
             binding.alarmSwitch.setChecked(true)
-        } else{
+        } else if(checkable == "notChecked"){
             binding.alarmSwitch.setChecked(false)
         }
 
@@ -66,6 +67,10 @@ class SettingFragment : Fragment() {
             .setContentText("일기를 작성하지 않으신날 21시가 되면 알림이 발송됩니다!")
             .setConfirmText("네")
             .show()
+    }
+
+    private fun setAlarm(context: Context){
+        AlarmManager.register(context, 21, 0, 0)
     }
 
 }

@@ -26,12 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //여기서 알람 판단
-        val checkable : String = Application.prefs.getString("noti", "")
-        Log.d("Logd", checkable)
-        if(checkable == "notChecked") {
-            setAlarm(this)
-        }
+
 
         // navController
         val navController = findNavController(R.id.nav_host_fragment)
@@ -50,7 +45,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setAlarm(context: Context){
-        AlarmManager.register(context, 21, 0, 0)
-    }
+//    private fun setAlarm(context: Context){
+//        AlarmManager.register(context, 21, 0, 0)
+//    }
+
+//    override fun onDestroy() {
+//        //여기서 알람 판단
+//        val checkable : String = Application.prefs.getString("noti", "")
+//        Log.d("Logd", "from sharedpreference - $checkable")
+//        if(checkable == "checked") {
+//            setAlarm(this)
+//        }
+//        super.onDestroy()
+//    }
 }
