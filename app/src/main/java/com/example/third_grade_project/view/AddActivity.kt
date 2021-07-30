@@ -68,4 +68,22 @@ class AddActivity : AppCompatActivity() {
             .setConfirmText("OK")
             .show()
         }
+
+    override fun onBackPressed() {
+        backDialog()
     }
+
+    private fun backDialog(){
+        SweetAlertDialog(this@AddActivity, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("작성중입니다!")
+            .setContentText("지금 나가면 작성중인 내용이 저장되지 않습니다. 나가시겠습니까?")
+            .setConfirmText("네")
+            .setConfirmClickListener {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            .setCancelText("아니요")
+            .show()
+    }
+
+}
