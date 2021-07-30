@@ -93,16 +93,17 @@
         app:layout_constraintTop_toTopOf="@id/detail_title_tv" />
 
     <View
+        android:id="@+id/view2"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:background="@color/light_gray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_content_Tv" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_content_Tv"
+        app:layout_constraintVertical_bias="0.02" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/detail_delete_Btn"
@@ -127,6 +128,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/detail_share_Btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/diary_share_icon"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.968" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

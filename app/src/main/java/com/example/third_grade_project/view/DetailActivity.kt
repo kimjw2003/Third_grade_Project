@@ -1,11 +1,11 @@
 package com.example.third_grade_project.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -76,6 +76,18 @@ class DetailActivity : AppCompatActivity() {
                     textToSpeech?.setSpeechRate(0.6f)
                 }
             }
+        }
+
+        binding.detailShareBtn.setOnClickListener {
+            val Sharing_intent = Intent(Intent.ACTION_SEND)
+            Sharing_intent.type = "text/plain"
+
+            val Test_Message = binding.detailContentTv.text.toString()
+
+            Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message)
+
+            val Sharing = Intent.createChooser(Sharing_intent, "공유하기")
+            startActivity(Sharing)
         }
 
     }
