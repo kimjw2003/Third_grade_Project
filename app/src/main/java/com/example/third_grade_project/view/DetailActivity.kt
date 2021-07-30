@@ -73,21 +73,21 @@ class DetailActivity : AppCompatActivity() {
                     //음성 톤
                     textToSpeech?.setPitch(0.8f)
                     //읽는 속도
-                    textToSpeech?.setSpeechRate(0.6f)
+                    textToSpeech?.setSpeechRate(0.8f)
                 }
             }
         }
 
         binding.detailShareBtn.setOnClickListener {
-            val Sharing_intent = Intent(Intent.ACTION_SEND)
-            Sharing_intent.type = "text/plain"
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
 
-            val Test_Message = binding.detailContentTv.text.toString()
+            val testMessage =binding.detailTitleTv.text.toString() + "\n" + binding.detailContentTv.text.toString()
 
-            Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message)
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, testMessage)
 
-            val Sharing = Intent.createChooser(Sharing_intent, "공유하기")
-            startActivity(Sharing)
+            val sharing = Intent.createChooser(sharingIntent, "공유하기")
+            startActivity(sharing)
         }
 
     }
