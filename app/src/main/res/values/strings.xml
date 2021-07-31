@@ -33,7 +33,7 @@
     <string name="setting_title">setting</string>
     <string name="setting_noti">알림 허용</string>
     <string name="setting_noti_content">ℹ️알림은 뭐할때 오나요?</string>
-    <string name="setting_version">v.1.0</string>
+    <string name="setting_version">v 1.0</string>
     <string name="setting_email">report : kjw111097@gmail.com</string>
     <!-- detail -->
     <string name="detail_title">title</string>

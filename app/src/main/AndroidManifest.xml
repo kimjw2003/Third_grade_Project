@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Third_grade_Project">
-        <activity android:name=".view.DetailActivity"></activity>
+        <activity android:name=".view.DetailActivity" />
         <activity android:name="com.example.third_grade_project.view.AddActivity" />
         <activity android:name="com.example.third_grade_project.view.ChoiceActivity" />
         <activity

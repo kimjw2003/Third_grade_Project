@@ -17,7 +17,7 @@
 
     <ImageView
         android:id="@+id/list_background_Img"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="130dp"
         android:src="@drawable/diary_sub_background"
         app:layout_constraintEnd_toEndOf="parent"
