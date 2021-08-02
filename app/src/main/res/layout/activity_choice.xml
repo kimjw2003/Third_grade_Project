@@ -6,7 +6,7 @@
     <data>
         <variable
             name="myChoiceViewModel"
-            type="com.example.third_grade_project.viewModel.ChoiceViewModel" />
+            type="kim.jong.third_grade_project.viewModel.ChoiceViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

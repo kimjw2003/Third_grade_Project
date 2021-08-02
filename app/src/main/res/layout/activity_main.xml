@@ -5,7 +5,7 @@
     <data>
         <variable
             name="myMainViewModel"
-            type="com.example.third_grade_project.viewModel.HomeViewModel" />
+            type="kim.jong.third_grade_project.viewModel.HomeViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

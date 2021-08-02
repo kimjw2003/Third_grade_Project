@@ -8,7 +8,7 @@
     <data>
         <variable
             name="mySettingViewModel"
-            type="com.example.third_grade_project.viewModel.SettingViewModel" />
+            type="kim.jong.third_grade_project.viewModel.SettingViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
