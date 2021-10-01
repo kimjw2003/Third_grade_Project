@@ -19,8 +19,11 @@
             android:textColor="@color/main_color"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:maxLines="1"
+            android:ems="9"
+            android:ellipsize="end"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/list_date_Tv"
             app:layout_constraintHorizontal_bias="0.121"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

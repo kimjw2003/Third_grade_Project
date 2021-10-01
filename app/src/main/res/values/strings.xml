@@ -18,7 +18,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="write_diary_text">일기 작성</string>
     <!-- add -->
-    <string name="add_title">제목을 입력해주세요.</string>
+    <string name="add_title">제목을 입력해주세요(최대 16자)</string>
     <string name="add_content">오늘은 어떤일이 있었나요?</string>
     <string name="add_addbtn">작성 완료</string>
     <!-- write -->

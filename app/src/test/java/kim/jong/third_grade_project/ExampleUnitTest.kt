@@ -1,4 +1,4 @@
-package kim.example.third_grade_project
+package kim.jong.third_grade_project
 
 import org.junit.Test
 

@@ -12,10 +12,13 @@ import kim.jong.third_grade_project.R
 import kim.jong.third_grade_project.databinding.ActivityAddBinding
 import kim.jong.third_grade_project.viewModel.AddViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.Externalizable
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.time.ExperimentalTime
+import kotlin.time.TimeSource
 
-@AndroidEntryPoint
+ @AndroidEntryPoint
 class AddActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityAddBinding
@@ -24,8 +27,10 @@ class AddActivity : AppCompatActivity() {
     private val currentDateTime = Calendar.getInstance().time
     private var date = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA).format(currentDateTime)
 
+    @OptIn(ExperimentalTime::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var mark = TimeSource.Monotonic.markNow()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add)
 
         addViewModel = ViewModelProvider(this).get(AddViewModel::class.java)
@@ -42,6 +47,7 @@ class AddActivity : AppCompatActivity() {
             Log.d("Logd", "button clicked")
             if(binding.addTitleEt.text.isEmpty() || binding.addContentEt.text.isEmpty()){
                 showDialog()
+                Toast.makeText(applicationContext, mark.elapsedNow().toString(), Toast.LENGTH_SHORT).show()
             }else {
                 addViewModel.save()
                 goSave()
@@ -53,7 +59,7 @@ class AddActivity : AppCompatActivity() {
     private fun goSave(){
         addViewModel.message.observe(this, {
             it.getContentIfNotHandled()?.let { toast ->
-                Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@AddActivity, MainActivity::class.java))
                 finish()
             }
