@@ -40,130 +40,150 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/choice_background" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/very_happy_btn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginStart="68dp"
-        android:background="@drawable/very_happy_image"
-        android:onClick="@{()->myChoiceViewModel.choiceVeryHappy()}"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/choice_background" />
-
-    <TextView
-        android:id="@+id/very_happy_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/choice_veryhappy"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/happy_Tv"
-        app:layout_constraintTop_toBottomOf="@+id/very_happy_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/choice_title_Tv">
 
-    <Button
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:onClick="@{()->myChoiceViewModel.choiceVeryHappy()}"
+            android:background="@drawable/very_happy_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/choice_veryhappy"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/happy_btn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="130dp"
-        android:background="@drawable/happy_image"
-        android:onClick="@{()->myChoiceViewModel.choiceHappy()}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/very_happy_btn"
-        app:layout_constraintTop_toTopOf="@+id/choice_background" />
-
-    <TextView
-        android:id="@+id/happy_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/choice_happy"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/very_happy_Tv"
-        app:layout_constraintTop_toBottomOf="@+id/happy_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/choice_title_Tv">
 
-    <Button
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:onClick="@{()->myChoiceViewModel.choiceHappy()}"
+            android:background="@drawable/happy_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/choice_happy"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/soso_btn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="64dp"
-        android:onClick="@{()->myChoiceViewModel.choiceSoso()}"
-        android:background="@drawable/soso_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/very_happy_Tv" />
-
-    <TextView
-        android:id="@+id/soso_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/choice_soso"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/sad_Tv"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soso_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/very_happy_btn">
 
-    <Button
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:onClick="@{()->myChoiceViewModel.choiceSoso()}"
+            android:background="@drawable/soso_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/choice_soso"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/sad_btn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/sad_image"
-        android:onClick="@{()->myChoiceViewModel.choiceSad()}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toEndOf="@+id/soso_btn"
-        app:layout_constraintTop_toBottomOf="@+id/happy_Tv" />
-
-    <TextView
-        android:id="@+id/sad_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="35dp"
-        android:text="@string/choice_sad"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/soso_Tv"
-        app:layout_constraintTop_toBottomOf="@+id/sad_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/happy_btn">
 
-    <Button
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:onClick="@{()->myChoiceViewModel.choiceSad()}"
+            android:background="@drawable/sad_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/choice_sad"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/angry_btn"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="64dp"
-        android:onClick="@{()->myChoiceViewModel.choiceAngry()}"
-        android:background="@drawable/angry_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soso_Tv" />
-
-    <TextView
-        android:id="@+id/angry_Tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/choice_angry"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/angry_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/soso_btn">
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:onClick="@{()->myChoiceViewModel.choiceAngry()}"
+            android:background="@drawable/angry_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/choice_angry"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
