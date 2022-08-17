@@ -1,6 +1,7 @@
 package kim.jong.third_grade_project.view
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -57,10 +58,26 @@ class DetailActivity : AppCompatActivity() {
             showDialog()
         }
 
+        initTts()
+
+        binding.detailShareBtn.setOnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
+
+            val testMessage =binding.detailTitleTv.text.toString() + "\n" + binding.detailContentTv.text.toString()
+
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, testMessage)
+
+            val sharing = Intent.createChooser(sharingIntent, "공유하기")
+            startActivity(sharing)
+        }
+
         binding.detailSpeakBtn.setOnClickListener {
             speech()
         }
+    }
 
+    private fun initTts() {
         //tts 설정
         textToSpeech = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
@@ -77,19 +94,6 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
-
-        binding.detailShareBtn.setOnClickListener {
-            val sharingIntent = Intent(Intent.ACTION_SEND)
-            sharingIntent.type = "text/plain"
-
-            val testMessage =binding.detailTitleTv.text.toString() + "\n" + binding.detailContentTv.text.toString()
-
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, testMessage)
-
-            val sharing = Intent.createChooser(sharingIntent, "공유하기")
-            startActivity(sharing)
-        }
-
     }
 
     private fun showDialog(){
@@ -123,6 +127,7 @@ class DetailActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun speech(){
         val speechData = binding.detailContentTv.text
